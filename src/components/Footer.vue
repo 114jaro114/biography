@@ -119,13 +119,12 @@ export default {
 }
 
 .part1 {
-  padding-top: 64px;
+  /* padding-top: 64px; */
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 .container-footer {
