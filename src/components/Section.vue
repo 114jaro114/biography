@@ -41,7 +41,24 @@
                 PHP (Laravel)
               </v-chip>
             </v-row>
-            <v-row no-gutters></v-row>
+
+            <v-row no-gutters class="pt-3 justify-lg-start justify-md-start justify-sm-start justify-center w-100 align-items-end">
+              <v-col cols="8">
+                <v-sparkline :value="value" :gradient="gradient" :smooth="radius || false" :padding="padding" :line-width="width" :stroke-linecap="lineCap" :gradient-direction="gradientDirection" :fill="fill" :type="type"
+                  :auto-line-width="autoLineWidth" auto-draw></v-sparkline>
+              </v-col>
+              <v-col cols="4">
+                <div class="position-relative">
+                  <!-- <v-chip class="ma-2 justify-start" align="left" color="primary" outlined> -->
+                  <v-icon left>
+                    mdi-map-marker
+                  </v-icon>
+                  {{town}}
+                  <!-- </v-chip> -->
+                </div>
+              </v-col>
+            </v-row>
+
           </v-col>
         </transition>
 
@@ -183,7 +200,7 @@
       <v-row class="justify-space-between" no-gutters>
         <transition name="slide-fade-lr">
           <v-col class="pa-3 order-lg-1 order-md-1 order-1" lg="4" md="6" cols="12" v-if="animSection2">
-            <v-progress-linear color="primary" buffer-value="0" value="60" height="35" rounded stream>
+            <v-progress-linear color="primary" buffer-value="70" value="60" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Microsoft Office</span>
               </div>
@@ -265,21 +282,21 @@
 
         <transition name="slide-fade-bt">
           <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="4" md="12" cols="12" v-if="animSection2">
-            <v-progress-linear color="primary" buffer-value="0" value="100" height="70" rounded stream>
+            <v-progress-linear color="green" buffer-value="0" value="100" height="70" rounded stream>
               <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
                 <span class="text-lg-subtitle-2 text-caption text-white">Anglický jazyk</span>
                 <span class="text-lg-subtitle-2 text-caption text-white">B1</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
+            <v-progress-linear class="mt-3" color="green" buffer-value="0" value="100" height="70" rounded stream>
               <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
                 <span class="text-lg-subtitle-2 text-caption text-white">Nemecký jazyk</span>
                 <span class="text-lg-subtitle-2 text-caption text-white">A1</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
+            <v-progress-linear class="mt-3" color="green" buffer-value="0" value="100" height="70" rounded stream>
               <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
                 <span class="text-lg-subtitle-2 text-caption text-white">Vodičský preukaz</span>
                 <span class="text-lg-subtitle-2 text-caption text-white">B</span>
@@ -290,43 +307,43 @@
 
         <transition name="slide-fade-rl">
           <v-col class="pa-3 order-lg-3 order-md-3 order-2" lg="4" md="6" cols="12" v-if="animSection2">
-            <v-progress-linear color="primary" buffer-value="0" value="60" height="35" rounded stream>
+            <v-progress-linear color="pink" buffer-value="0" value="60" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Komunikačné schopnosti</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="80" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Kreativita</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="100" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Flexibilita</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="80" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Medziľudské vzťahy</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="80" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Zodpovednosť</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="80" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Tímová práca</span>
               </div>
             </v-progress-linear>
 
-            <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+            <v-progress-linear class="mt-3" color="pink" buffer-value="0" value="80" height="35" rounded stream>
               <div class="d-flex justify-start w-100 p-3">
                 <span class="text-lg-subtitle-2 text-caption text-white">Riadenie času</span>
               </div>
@@ -347,24 +364,33 @@
         <v-row>
           <transition name="bounce">
             <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="3" md="6" cols="6" v-if="animSection3">
-              <div class="d-flex text-center flex-column w-100 ">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="125" dark>
-                    mdi-controller
-                  </v-icon>
-                </v-avatar>
-              </div>
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="125" dark>
+              <v-hover>
+                <template v-slot:default="{ hover }">
+                  <div class="row justify-center">
+                    <v-avatar :size="size" color="primary" rounded>
+                      <v-icon :size="size - 25" dark>
+                        mdi-controller
+                      </v-icon>
+
+                      <v-fade-transition>
+                        <v-overlay v-if="hover" absolute color="primary">
+                          videohry
+                        </v-overlay>
+                      </v-fade-transition>
+                    </v-avatar>
+                  </div>
+                </template>
+              </v-hover>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-headphones
                   </v-icon>
                 </v-avatar>
               </div>
-
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="100" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-theater
                   </v-icon>
                 </v-avatar>
@@ -373,24 +399,24 @@
           </transition>
           <transition name="bounce">
             <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="3" md="6" cols="6" v-if="animSection3">
-              <div class="d-flex text-center flex-column w-100 ">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="125" dark>
+              <div class="row justify-center">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-soccer
                   </v-icon>
                 </v-avatar>
               </div>
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-dumbbell
                   </v-icon>
                 </v-avatar>
               </div>
 
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="100" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-skate
                   </v-icon>
                 </v-avatar>
@@ -399,25 +425,25 @@
           </transition>
           <transition name="bounce">
             <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="3" md="6" cols="6" v-if="animSection3">
-              <div class="d-flex text-center flex-column w-100 ">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3 pt-md-0 pt-lg-0">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-fish
                   </v-icon>
                   <!-- <v-img width="100" height="100" :lazy-src="require('../assets/img/fishing.png')" :src="require('../assets/img/fishing.png')" /> -->
                 </v-avatar>
               </div>
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-swim
                   </v-icon>
                 </v-avatar>
               </div>
 
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="100" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-bike
                   </v-icon>
                 </v-avatar>
@@ -426,24 +452,24 @@
           </transition>
           <transition name="bounce">
             <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="3" md="6" cols="6" v-if="animSection3">
-              <div class="d-flex text-center flex-column w-100 ">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3 pt-md-0 pt-lg-0">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-chef-hat
                   </v-icon>
                 </v-avatar>
               </div>
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-shovel
                   </v-icon>
                 </v-avatar>
               </div>
 
-              <div class="d-flex text-center flex-column w-100 mt-3">
-                <v-avatar size="150" color="primary">
-                  <v-icon size="110" dark>
+              <div class="row justify-center pt-3">
+                <v-avatar :size="size" color="primary" rounded>
+                  <v-icon :size="size - 25" dark>
                     mdi-forest
                   </v-icon>
                 </v-avatar>
@@ -484,6 +510,70 @@
     <transition name="slide-fade-tb">
       <div class="text-lg-h3 text-md-h3 text-h5 mt-3" v-if="animSection4">Portfólio</div>
     </transition>
+
+    <v-container class="w-100 p-0 m-0 mt-3">
+      <v-row no-gutters>
+        <transition name="slide-fade-lr">
+          <v-col class="px-0 px-lg-16 px-md-16 px-sm-8 py-0 py-lg-8 py-md-8 order-lg-1 order-md-1 order-1" lg="6" md="6" cols="12" v-if="animSection4">
+            <v-card class="mx-auto" elevation="0">
+              <v-img height="250" lazy-src="https://cdn.vuetifyjs.com/images/cards/cooking.png" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+              <v-card-actions class="pl-0">
+                <v-btn class="anim" color="primary" text @click="dialog1 = true">
+                  <span>know more</span>
+                  <v-icon class="arrow">mdi-arrow-right</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+
+            <v-dialog v-model="dialog1" fullscreen hide-overlay transition="dialog-bottom-transition">
+              <v-card class="mx-auto" tile>
+                <v-toolbar color="primary" dark elevation="0">
+                  <v-btn class="anim" icon dark @click="dialog1 = false">
+                    <v-icon class="arrow2">mdi-arrow-left</v-icon>
+                  </v-btn>
+                  <v-toolbar-title>Decentralizovaná sociálna sieť</v-toolbar-title>
+                </v-toolbar>
+              </v-card>
+            </v-dialog>
+
+            <v-card class="mx-auto" elevation="0">
+              <v-img height="250" lazy-src="https://cdn.vuetifyjs.com/images/cards/cooking.png" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+              <v-card-actions class="pl-0">
+                <v-btn class="anim" color="primary" text>
+                  <span>know more</span>
+                  <v-icon transition="slide-x-transition" class="arrow">mdi-arrow-right</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </transition>
+
+        <transition name="slide-fade-lr">
+          <v-col class="px-0 px-lg-16 px-md-16 px-sm-8 py-0 py-lg-8 py-md-8 order-lg-2 order-md-2 order-2" lg="6" md="6" cols="12" v-if="animSection4">
+            <v-card class="mx-auto" elevation="0">
+              <v-img height="250" lazy-src="https://cdn.vuetifyjs.com/images/cards/cooking.png" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+              <v-card-actions class="pl-0">
+                <v-btn class="anim" color="primary" text>
+                  <span>know more</span>
+                  <v-icon transition="slide-x-transition" class="arrow">mdi-arrow-right</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+
+            <v-card class="mx-auto" elevation="0">
+              <v-img height="250" lazy-src="https://cdn.vuetifyjs.com/images/cards/cooking.png" src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
+              <v-card-actions class="pl-0">
+                <v-btn class="anim" color="primary" text>
+                  <span>know more</span>
+                  <v-icon transition="slide-x-transition" class="arrow">mdi-arrow-right</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+
+          </v-col>
+        </transition>
+      </v-row>
+    </v-container>
   </section>
 
   <section id="section5" class="fullpage">
@@ -493,6 +583,14 @@
 </template>
 
 <script>
+const gradients = [
+  ['#222'],
+  ['#42b3f4'],
+  ['red', 'orange', 'yellow'],
+  ['purple', 'violet'],
+  ['#00c6ff', '#F0F', '#FF0'],
+  ['#f72047', '#ffd200', '#1feaea'],
+]
 import Footer from "../components/Footer.vue";
 export default {
   name: 'Section',
@@ -532,7 +630,7 @@ export default {
       animSection4: true,
       animSection5: true,
       schools: [{
-          color: 'cyan',
+          color: 'primary',
           year: '2020-2022',
           type: 'Vysokoškolské vzdelanie II. stupňa',
           name: 'Technická univerzita v Košiciach, Fakulta elektrotechniky a informatiky',
@@ -558,8 +656,48 @@ export default {
       ],
       hob1: false,
       hob2: false,
+      dialog1: false,
+      overlay: false,
+
+      width: 4,
+      radius: 10,
+      padding: 8,
+      lineCap: 'round',
+      gradient: gradients[5],
+      value: [9, 9, 9, 9, 7, 7, 7, 7],
+      gradientDirection: 'left',
+      gradients,
+      fill: false,
+      type: 'trend',
+      autoLineWidth: false,
+
+      town: 'Ždaňa',
+      // height: null,
       // sections: ['this.showSection0', 'this.showSection1', 'this.showSection2', 'this.showSection3', 'this.showSection4'],
     }
+  },
+
+  computed: {
+    size() {
+      let size = 0
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          size = 80
+          break;
+        case 'sm':
+          size = 100
+          break;
+        case 'md':
+          size = 150
+          break;
+        case 'lg':
+          size = 150
+          break;
+        case 'xl':
+          size = 150
+      }
+      return size;
+    },
   },
 
   watch: {
@@ -626,6 +764,20 @@ export default {
 
   mounted() {
     this.calculateSectionOffsets();
+    console.log(this.$vuetify.breakpoint.width);
+    console.log(this.$vuetify.breakpoint.name);
+    switch (this.$vuetify.breakpoint.name) {
+      case 'xs':
+        return '220';
+      case 'sm':
+        return '400';
+        //       case 'md':
+        //         return 500
+        //       case 'lg':
+        //         return 600
+        //       case 'xl':
+        //         return 800
+    }
   },
 
   updated() {
@@ -1087,5 +1239,64 @@ export default {
   {
   transform: translateY(-100%);
   opacity: 0;
+}
+
+.arrow {
+  &::after {
+    display: inline-block;
+    padding-left: 8px;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+    -ms-transition: transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+
+  &:hover {
+    color: #0c5449;
+    background-color: #f6f3ed;
+
+    &::after {
+      -webkit-transform: translateX(4px);
+      -moz-transform: translateX(4px);
+      -ms-transform: translateX(4px);
+      -o-transform: translateX(4px);
+      transform: translateX(4px);
+    }
+  }
+}
+
+.anim:hover .arrow {
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+}
+
+.anim:hover .arrow2 {
+  animation: slide2 1s ease-in-out infinite;
+  margin-right: 9px;
+}
+
+@keyframes slide1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+
+@keyframes slide2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
 }
 </style>

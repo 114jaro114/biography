@@ -1,6 +1,6 @@
 <template>
 <div>
-  <v-app-bar app elevation="0" :elevate-on-scroll="true">
+  <v-app-bar class="toolbar" id="toolbar" app elevation="0" :elevate-on-scroll="true">
     <!-- <v-card class="rounded-lg" elevation="0" dense>
       <v-card-text class="p-2 pt-1 pb-1">
         <v-avatar size="36" class="pt-1">
@@ -43,16 +43,18 @@
 
       <v-menu offset-y nudge-bottom="5">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" text rounded v-bind="attrs" v-on="on">
-            <div v-if="selectedLang == '1'">
-              <CountryFlag :country="'gb'" size='normal' />
-              <span class="position-relative ml-2" style="top:-5px">en</span>
-            </div>
-            <div v-else>
-              <CountryFlag :country="'sk'" size='normal' />
-              <span class="position-relative ml-2" style="top:-5px">sk</span>
-            </div>
-          </v-btn>
+          <div class="lang">
+            <v-btn color="primary" text rounded v-bind="attrs" v-on="on">
+              <div v-if="selectedLang == '1'">
+                <CountryFlag :country="'gb'" size='normal' />
+                <span class="position-relative ml-2" style="top:-5px">en</span>
+              </div>
+              <div v-else>
+                <CountryFlag :country="'sk'" size='normal' />
+                <span class="position-relative ml-2" style="top:-5px">sk</span>
+              </div>
+            </v-btn>
+          </div>
         </template>
         <v-list class="langlist">
           <v-list-item-group v-model="selectedLang" color="primary">
@@ -193,9 +195,9 @@
         <span v-else>Zapnúť svetlo</span>
       </v-tooltip>
 
-      <v-menu offset-y nudge-bottom="5">
+      <v-menu id="langMenu" offset-y nudge-bottom="5">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" text rounded v-bind="attrs" v-on="on">
+          <v-btn id="lang" color="primary" text rounded v-bind="attrs" v-on="on">
             <div v-if="selectedLang == '1'">
               <CountryFlag :country="'gb'" size='normal' />
               <span class="position-relative ml-2" style="top:-5px">en</span>
@@ -279,6 +281,8 @@ export default {
 
     if (localStorage.getItem('activeSection') != null) {
       this.pos = localStorage.getItem('activeSection');
+
+      this.setColorFirstSection();
     }
 
     this.select = localStorage.getItem('language');
@@ -292,10 +296,30 @@ export default {
     nos() {
       this.position = this.nos;
       this.pos = this.nos;
+
+      this.setColorFirstSection();
+      console.log("asssssssssssssssssssssssssssssssss");
     },
   },
 
   methods: {
+    setColorFirstSection() {
+      var element = document.getElementById('toolbar');
+      if (this.pos == 0) {
+        if (element.classList.contains("theme--light")) {
+          element.style.backgroundColor = '#fff';
+        } else {
+          element.style.backgroundColor = '#121212';
+        }
+      } else {
+        if (element.classList.contains('theme--light')) {
+          element.style.backgroundColor = '#f5f5f5';
+        } else {
+          element.style.backgroundColor = '#272727';
+        }
+      }
+    },
+
     setlang(item) {
       localStorage.setItem('language', item.name);
       if (item.name == 'sk') {
@@ -324,6 +348,20 @@ export default {
         localStorage.setItem('graph_theme', 'light');
         localStorage.setItem('graph_text_color', '#2c3e50');
       }
+      var element = document.getElementById('toolbar');
+      if (this.pos == 0) {
+        if (element.classList.contains("theme--light")) {
+          element.style.backgroundColor = '#121212';
+        } else {
+          element.style.backgroundColor = '#fff';
+        }
+      } else {
+        if (element.classList.contains('theme--light')) {
+          element.style.backgroundColor = '#272727';
+        } else {
+          element.style.backgroundColor = '#f5f5f5';
+        }
+      }
     },
 
     scrollToSection(id, force = false) {
@@ -339,6 +377,8 @@ export default {
         behavior: 'smooth'
       });
       this.$emit('activeAnimationFromHeader', document.getElementsByTagName('section')[id].id);
+
+      this.setColorFirstSection();
 
       setTimeout(() => {
         this.inMove = false;
@@ -369,5 +409,17 @@ export default {
 
 .langlist .v-list-item {
   padding: 0px !important;
+}
+
+.headerSec0ThemeLight {
+  background-color: white;
+}
+
+.headerSec0ThemeDark {
+  background-color: #121212;
+}
+
+.lang .v-btn:not(.v-btn--round).v-size--default {
+  width: 91px;
 }
 </style>
