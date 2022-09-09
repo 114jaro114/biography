@@ -1,9 +1,12 @@
 <template>
 <div id="app">
   <v-app>
-    <Header :nos="nos" @toSectionFromHeader="numberOfSectionFromHeader" @activeAnimationFromHeader="nameOfAnimatedSection" />
-    <Section :gtt="gtt" class="position-relative" :nosfh="nosfh" :activeAnimation="activeAnimation" @toNumberFromSection="numberOfSectionFromSection" @resetGtt="stateResetGtt" />
+    <!-- <router-view /> -->
+    <Header :nos="nos" :sp="sp" @positionOfHeader="numberOfHeaderPosition" @activeAnimationFromHeader="nameOfAnimatedSection" />
+    <!-- @toSectionFromHeader="numberOfSectionFromHeader" -->
+    <Home :gtt="gtt" :poh="poh" @sectionPositions="numberOfPositionsEachSections" class="position-relative" :activeAnimation="activeAnimation" @toNumberFromSection="numberOfSectionFromSection" @resetGtt="stateResetGtt" />
     <!-- style="top:64px"  -->
+    <!-- :nosfh="nosfh" -->
     <v-fab-transition>
       <v-btn class="goToTop" v-scroll="onScroll" v-show="fab" fab x-small dark fixed bottom right color="primary" @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
@@ -15,20 +18,22 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import Section from "@/components/Section.vue";
+import Home from "@/components/Home.vue";
 export default {
   name: 'App',
   components: {
     Header,
-    Section,
+    Home,
   },
   data() {
     return {
       fab: false,
       nos: null,
       gtt: false,
-      nosfh: null,
+      // nosfh: null,
       activeAnimation: null,
+      sp: [],
+      poh: null,
     }
   },
 
@@ -40,12 +45,8 @@ export default {
     if (theme) {
       if (theme === "true") {
         this.$vuetify.theme.dark = true;
-        localStorage.setItem('graph_theme', 'dark');
-        localStorage.setItem('graph_text_color', '#ffffff');
       } else {
         this.$vuetify.theme.dark = false;
-        localStorage.setItem('graph_theme', 'light');
-        localStorage.setItem('graph_text_color', '#2c3e50');
       }
     }
   },
@@ -55,12 +56,20 @@ export default {
       this.nos = id;
     },
 
+    numberOfPositionsEachSections(ids) {
+      this.sp = ids
+    },
+
     stateResetGtt(state) {
       this.gtt = state;
     },
 
-    numberOfSectionFromHeader(id) {
-      this.nosfh = id;
+    // numberOfSectionFromHeader(id) {
+    //   this.nosfh = id;
+    // },
+
+    numberOfHeaderPosition(id) {
+      this.poh = id;
     },
 
     nameOfAnimatedSection(id) {
@@ -75,7 +84,8 @@ export default {
 
     toTop() {
       this.gtt = true;
-      this.$vuetify.goTo(0)
+      this.$vuetify.goTo(0);
+      localStorage.setItem('activeSection', 0);
     },
   }
 }

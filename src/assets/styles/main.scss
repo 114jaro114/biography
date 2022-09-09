@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 @import 'scrollbar.scss';
+@import 'transitions.scss';
 
 body::-webkit-scrollbar {
   display: none;

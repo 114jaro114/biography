@@ -243,15 +243,22 @@ export default {
       type: Number,
       default: null
     },
+
+    sp: {
+      type: Array,
+      default: null
+    }
   },
 
   data() {
     return {
       smDevicesMenu: false,
       switch1: false,
-      position: 0,
+      position: null,
       pos: 0,
       test: '',
+      sectionPositions: [],
+      positionOfHeader: null,
 
       select: localStorage.getItem('language'),
       selectedLang: 0,
@@ -281,7 +288,7 @@ export default {
 
     if (localStorage.getItem('activeSection') != null) {
       this.pos = localStorage.getItem('activeSection');
-
+      this.position = localStorage.getItem('activeSection');
       this.setColorFirstSection();
     }
 
@@ -289,30 +296,42 @@ export default {
   },
 
   updated() {
-    // localStorage.setItem('language', this.select);
+    // localStorage.setItem('language', this.select);\
+    const scrollDemo = document.querySelector("#toolbar");
+    window.addEventListener("scroll", () => {
+      this.positionOfHeader = window.scrollY + scrollDemo.getBoundingClientRect().top;
+      this.$emit('positionOfHeader', window.scrollY + scrollDemo.getBoundingClientRect().top);
+    }, {
+      passive: true
+    });
   },
 
   watch: {
     nos() {
       this.position = this.nos;
       this.pos = this.nos;
-
       this.setColorFirstSection();
-      console.log("asssssssssssssssssssssssssssssssss");
+      // console.log(this.nos);
     },
+
+    sp() {
+      this.sectionPositions = this.sp;
+    }
   },
 
   methods: {
     setColorFirstSection() {
       var element = document.getElementById('toolbar');
+      var theme = localStorage.getItem('dark_theme');
+
       if (this.pos == 0) {
-        if (element.classList.contains("theme--light")) {
+        if (theme == 'false') {
           element.style.backgroundColor = '#fff';
         } else {
           element.style.backgroundColor = '#121212';
         }
       } else {
-        if (element.classList.contains('theme--light')) {
+        if (theme == 'false') {
           element.style.backgroundColor = '#f5f5f5';
         } else {
           element.style.backgroundColor = '#272727';
@@ -341,22 +360,16 @@ export default {
     toggle_dark_mode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
-      if (this.$vuetify.theme.dark == true) {
-        localStorage.setItem('graph_theme', 'dark');
-        localStorage.setItem('graph_text_color', '#ffffff');
-      } else {
-        localStorage.setItem('graph_theme', 'light');
-        localStorage.setItem('graph_text_color', '#2c3e50');
-      }
+
       var element = document.getElementById('toolbar');
       if (this.pos == 0) {
-        if (element.classList.contains("theme--light")) {
+        if (this.$vuetify.theme.dark == true) {
           element.style.backgroundColor = '#121212';
         } else {
           element.style.backgroundColor = '#fff';
         }
       } else {
-        if (element.classList.contains('theme--light')) {
+        if (this.$vuetify.theme.dark == true) {
           element.style.backgroundColor = '#272727';
         } else {
           element.style.backgroundColor = '#f5f5f5';
@@ -368,14 +381,34 @@ export default {
       if (this.inMove && !force) return false;
       this.pos = id;
       this.position = id;
-
       this.activeSection = id;
       this.inMove = true;
 
-      this.$emit('toSectionFromHeader', id);
-      document.getElementsByTagName('section')[id].scrollIntoView({
+      let ypos = 0;
+      if (id == 0) {
+        ypos = this.sectionPositions[0];
+      } else if (id == 1) {
+        ypos = this.sectionPositions[1];
+      } else if (id == 2) {
+        ypos = this.sectionPositions[2];
+      } else if (id == 3) {
+        ypos = this.sectionPositions[3];
+      } else if (id == 4) {
+        ypos = this.sectionPositions[4];
+      } else {
+        ypos = this.sectionPositions[5];
+      }
+
+      window.scrollTo({
+        top: ypos,
         behavior: 'smooth'
       });
+
+      // this.$emit('toSectionFromHeader', id);
+
+      // document.getElementsByTagName('section')[id].scrollIntoView({
+      //   behavior: 'smooth'
+      // });
       this.$emit('activeAnimationFromHeader', document.getElementsByTagName('section')[id].id);
 
       this.setColorFirstSection();

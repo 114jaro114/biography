@@ -50,36 +50,34 @@ Vue.use(Vuetify, {
 // })
 
 
-const opts = {
+// const opts = {
+//
+// }
+export default new Vuetify({
   theme: {
     themes: {
       dark: {
-        // primary: '#0D47A1',
-        primary: '#9966ff',
-        accent: '#E0E0E0',
+        primary: '#1976d2',
+        accent: '#1feaea',
         secondary: '#EEEEEE',
         success: '#4CAF50',
         info: '#2196F3',
         warning: '#FB8C00',
         error: '#EA1616',
         background: '#333333',
-        whitecol: 'fff',
+        anyColor: '#1feaea',
       },
       light: {
-        // primary: '#0D47A1',
-        primary: '#9966ff',
-        accent: '#212121',
+        primary: '#1976d2',
+        accent: '#1feaea',
         secondary: '#ffffff',
         success: '#4CAF50',
         info: '#2196F3',
         warning: '#FB8C00',
         error: '#EA1616',
         background: '#f5f5f5',
-        whitecol: 'fff',
+        anyColor: '#1feaea',
       }
     },
   }
-}
-export default new Vuetify({
-  opts
 });

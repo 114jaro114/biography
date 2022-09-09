@@ -22,11 +22,11 @@
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" tabindex="1" filled clearable required></v-text-field>
           <v-textarea v-model="message" :rules="messageRules" :counter="1000" label="Správa" tabindex="1" filled clearable auto-grow></v-textarea>
 
-          <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="mb-2 mb-lg-0 mb-xl-0 mb-sm-0" @click="validate" rounded>
+          <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="mb-2 mb-lg-0 mb-xl-0 mb-sm-0" @click="sendMessage" rounded>
             Odoslať formulár
           </v-btn>
 
-          <v-btn color="primary" :disabled="!name && !email && !message" class="ml-lg-2 ml-xl-2 ml-sm-2" @click="reset" rounded outlined>
+          <v-btn color="primary" :disabled="!name && !email && !message || loading" class="ml-lg-2 ml-xl-2 ml-sm-2" @click="reset" rounded outlined>
             Resetovať formulár
           </v-btn>
         </v-form>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
 export default {
   name: 'Footer',
   components: {},
@@ -68,7 +69,7 @@ export default {
       message: '',
       messageRules: [
         v => !!v || 'Správa je povinná',
-        v => (v && v.length <= 10) || 'Správa môže obsahovať maximálne 1000 znakov',
+        v => (v && v.length <= 1000) || 'Správa môže obsahovať maximálne 1000 znakov',
       ],
       email: '',
       emailRules: [
@@ -89,15 +90,24 @@ export default {
       // validate form
       if (this.validate()) {
         this.valid = true;
-        // add snackbar
-        this.snackbar = true;
-        this.snackbarText = 'Správa bola úspešne odoslaná.';
-        this.snackbarColor = 'success';
-        this.snackbarTimeout = '5000';
-
-        this.loading = false;
-        // reset form
-        this.$refs.form.reset();
+        var templateParams = {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        };
+        emailjs.send('service_1pw1pxa', 'template_euzboxt', templateParams, 'o5ldfXTWwrJiLeZIk')
+          .then(() => {
+            // add snackbar
+            this.snackbar = true;
+            this.snackbarText = 'Správa bola úspešne odoslaná.';
+            this.snackbarColor = 'success';
+            this.snackbarTimeout = '5000';
+            this.loading = false;
+            this.$refs.form.reset();
+            // reset form
+          }, function(error) {
+            console.log('FAILED...', error);
+          });
       } else {
         this.loading = false;
         return
