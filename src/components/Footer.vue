@@ -12,24 +12,26 @@
     </v-snackbar>
     <!-- app bottom -->
     <v-card flat tile class="text-center part1">
-      <v-container class="p-5 pb-0 pt-0 container-footer">
+      <v-container class="p-0 container-footer">
         <transition name="slide-fade-tb">
           <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">{{ $t('section6.title') }}</v-card-title>
         </transition>
         <!-- <v-divider class="mt-0" /> -->
-        <v-col cols="10" sm="8" md="6" lg="6">
+        <v-col cols="10" sm="10" md="6" lg="6" class="p-0">
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field v-model="name" :rules="nameRules" :counter="20" :label="$t('section6.form.name')" tabindex="1" filled clearable required></v-text-field>
             <v-text-field v-model="email" :rules="emailRules" :label="$t('section6.form.email')" tabindex="1" filled clearable required></v-text-field>
             <v-textarea v-model="message" :rules="messageRules" :counter="1000" :label="$t('section6.form.msg')" tabindex="1" filled clearable auto-grow></v-textarea>
 
-            <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="mb-2 mb-lg-0 mb-xl-0 mb-sm-0" @click="sendMessage" rounded>
-              {{ $t('section6.buttons.n1') }}
-            </v-btn>
+            <div class="">
+              <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="ma-1" @click="sendMessage" rounded>
+                {{ $t('section6.buttons.n1') }}
+              </v-btn>
 
-            <v-btn color="primary" :disabled="!name && !email && !message || loading" class="ml-lg-2 ml-xl-2 ml-sm-2" @click="reset" rounded outlined>
-              {{ $t('section6.buttons.n2') }}
-            </v-btn>
+              <v-btn color="primary" :disabled="!name && !email && !message || loading" class="ma-1" @click="reset" rounded outlined>
+                {{ $t('section6.buttons.n2') }}
+              </v-btn>
+            </div>
           </v-form>
         </v-col>
       </v-container>
