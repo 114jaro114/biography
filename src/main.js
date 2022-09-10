@@ -19,9 +19,6 @@ Vue.use(Vue2TouchEvents, {
   namespace: 'test'
 })
 
-import VueI18n from 'vue-i18n';
-Vue.use(VueI18n);
-
 // import VueScrollProgress from "vue-scroll-progress";
 //
 // Vue.use(VueScrollProgress);
