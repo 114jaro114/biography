@@ -10,23 +10,23 @@
       </v-card-text>
     </v-card> -->
     <v-row class="mr-0 mt-0 mb-0 ml-0 hidden-sm-and-down justify-end">
-      <v-btn v-if="pos == 0" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">O mne</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">O mne</v-btn>
+      <v-btn v-if="pos == 0" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
 
-      <v-btn v-if="pos == 1" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">Vzdelanie</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">Vzdelanie</v-btn>
+      <v-btn v-if="pos == 1" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
 
-      <v-btn v-if="pos == 2" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">Znalosti a zručnosti</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">Znalosti a zručnosti</v-btn>
+      <v-btn v-if="pos == 2" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
 
-      <v-btn v-if="pos == 3" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">Záľuby</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">Záľuby</v-btn>
+      <v-btn v-if="pos == 3" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
 
-      <v-btn v-if="pos == 4" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">Portfólio</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">Portfólio</v-btn>
+      <v-btn v-if="pos == 4" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
 
-      <v-btn v-if="pos == 5" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">Kontakt</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">Kontakt</v-btn>
+      <v-btn v-if="pos == 5" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
+      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
 
       <v-spacer />
 
@@ -37,8 +37,8 @@
             <v-icon color="grey" v-else>mdi-lightbulb-outline</v-icon>
           </v-btn>
         </template>
-        <span v-if="!$vuetify.theme.dark">Vypnúť svetlo</span>
-        <span v-else>Zapnúť svetlo</span>
+        <span v-if="!$vuetify.theme.dark">{{ $t('header.theme.t1') }}</span>
+        <span v-else>{{ $t('header.theme.t2') }}</span>
       </v-tooltip>
 
       <v-menu offset-y nudge-bottom="5">
@@ -102,9 +102,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      O mne
+                      {{ $t('header.pos1') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Pár informácií o mne</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t1') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -116,9 +116,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      Vzdelanie
+                      {{ $t('header.pos2') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Dosiahnuté vzdelanie</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t2') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -130,9 +130,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      Znalosti a zručnosti
+                      {{ $t('header.pos3') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Môj skill</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t3') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -144,9 +144,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      Záľuby
+                      {{ $t('header.pos4') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Moje koníčky</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t4') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -158,9 +158,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      Protfólio
+                      {{ $t('header.pos5') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Moje práce</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t5') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -172,9 +172,9 @@
                 <v-list-item-content>
                   <v-card class="p-2 rounded-lg card-comments" elevation="0">
                     <v-card-title class="d-flex justify-start text-subtitle-2 font-weight-bold p-0 pb-3 pl-1">
-                      Kontakt
+                      {{ $t('header.pos6') }}
                     </v-card-title>
-                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">Pošli mi správu</v-card-subtitle>
+                    <v-card-subtitle class="d-flex text-left caption grey--text p-0 pl-1">{{ $t('header.smtoolbar.t6') }}</v-card-subtitle>
                   </v-card>
                 </v-list-item-content>
               </v-list-item>
@@ -191,8 +191,8 @@
             <v-icon color="grey" v-else>mdi-lightbulb-outline</v-icon>
           </v-btn>
         </template>
-        <span v-if="!$vuetify.theme.dark">Vypnúť svetlo</span>
-        <span v-else>Zapnúť svetlo</span>
+        <span v-if="!$vuetify.theme.dark">{{ $t('header.theme.t1') }}</span>
+        <span v-else>{{ $t('header.theme.t2') }}</span>
       </v-tooltip>
 
       <v-menu id="langMenu" offset-y nudge-bottom="5">
@@ -343,8 +343,10 @@ export default {
       localStorage.setItem('language', item.name);
       if (item.name == 'sk') {
         this.selectedLang = 0;
+        this.$i18n.locale = 'sk';
       } else {
         this.selectedLang = 1;
+        this.$i18n.locale = 'en';
       }
     },
 

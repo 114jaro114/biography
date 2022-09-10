@@ -14,32 +14,32 @@
     <v-card flat tile class="text-center part1">
       <v-container class="p-5 pb-0 pt-0 container-footer">
         <transition name="slide-fade-tb">
-          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">Kontaktuj ma</v-card-title>
+          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">{{ $t('section6.title') }}</v-card-title>
         </transition>
         <!-- <v-divider class="mt-0" /> -->
-        <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="name" :rules="nameRules" :counter="20" label="Meno" tabindex="1" filled clearable required></v-text-field>
-          <v-text-field v-model="email" :rules="emailRules" label="E-mail" tabindex="1" filled clearable required></v-text-field>
-          <v-textarea v-model="message" :rules="messageRules" :counter="1000" label="Správa" tabindex="1" filled clearable auto-grow></v-textarea>
+        <v-col cols="10" sm="8" md="6" lg="6">
+          <v-form ref="form" v-model="valid" lazy-validation>
+            <v-text-field v-model="name" :rules="nameRules" :counter="20" :label="$t('section6.form.name')" tabindex="1" filled clearable required></v-text-field>
+            <v-text-field v-model="email" :rules="emailRules" :label="$t('section6.form.email')" tabindex="1" filled clearable required></v-text-field>
+            <v-textarea v-model="message" :rules="messageRules" :counter="1000" :label="$t('section6.form.msg')" tabindex="1" filled clearable auto-grow></v-textarea>
 
-          <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="mb-2 mb-lg-0 mb-xl-0 mb-sm-0" @click="sendMessage" rounded>
-            Odoslať formulár
-          </v-btn>
+            <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="mb-2 mb-lg-0 mb-xl-0 mb-sm-0" @click="sendMessage" rounded>
+              {{ $t('section6.buttons.n1') }}
+            </v-btn>
 
-          <v-btn color="primary" :disabled="!name && !email && !message || loading" class="ml-lg-2 ml-xl-2 ml-sm-2" @click="reset" rounded outlined>
-            Resetovať formulár
-          </v-btn>
-        </v-form>
+            <v-btn color="primary" :disabled="!name && !email && !message || loading" class="ml-lg-2 ml-xl-2 ml-sm-2" @click="reset" rounded outlined>
+              {{ $t('section6.buttons.n2') }}
+            </v-btn>
+          </v-form>
+        </v-col>
       </v-container>
-      <!-- <v-card-text class="justify-center" justify="center">
-    </v-card-text> -->
 
       <div class="container-footer2">
         <v-divider class="mt-0 mb-0" />
         <v-card-text class="justify-space-around">
-          <v-icon color="primary" small>mdi-copyright</v-icon> {{ new Date().getFullYear() }} — <span>Made with <strong>
+          <v-icon color="primary" small>mdi-copyright</v-icon> {{ new Date().getFullYear() }} — <span>{{ $t('section6.bottompart.t1') }} <strong>
               <v-icon color="primary" small>mdi-heart-outline</v-icon>
-            </strong> by <strong class="primary--text">Jaroslav Balent</strong>
+            </strong> {{ $t('section6.bottompart.t2') }} <strong class="primary--text">{{ $t('section6.bottompart.t3') }}</strong>
           </span>
         </v-card-text>
       </div>
@@ -63,18 +63,18 @@ export default {
       valid: false,
       name: '',
       nameRules: [
-        v => !!v || 'Meno je povinné',
-        v => (v && v.length <= 10) || 'Meno musí byť kratšie ako 20 znakov',
+        v => !!v || this.$t('section6.form.validate.name.n1'),
+        v => (v && v.length <= 10) || this.$t('section6.form.validate.name.n2'),
       ],
       message: '',
       messageRules: [
-        v => !!v || 'Správa je povinná',
-        v => (v && v.length <= 1000) || 'Správa môže obsahovať maximálne 1000 znakov',
+        v => !!v || this.$t('section6.form.validate.msg.n1'),
+        v => (v && v.length <= 1000) || this.$t('section6.form.validate.msg.n2'),
       ],
       email: '',
       emailRules: [
-        v => !!v || 'E-mail je povinný',
-        v => /.+@.+\..+/.test(v) || 'E-mail musí mať valídny tvar',
+        v => !!v || this.$t('section6.form.validate.email.n1'),
+        v => /.+@.+\..+/.test(v) || this.$t('section6.form.validate.email.n2'),
       ],
 
       loading: false,
@@ -99,13 +99,18 @@ export default {
           .then(() => {
             // add snackbar
             this.snackbar = true;
-            this.snackbarText = 'Správa bola úspešne odoslaná.';
+            this.snackbarText = this.$t('section6.snackbar.succ');
             this.snackbarColor = 'success';
             this.snackbarTimeout = '5000';
             this.loading = false;
             this.$refs.form.reset();
             // reset form
           }, function(error) {
+            this.snackbar = true;
+            this.snackbarText = this.$t('section6.snackbar.err');
+            this.snackbarColor = 'error';
+            this.snackbarTimeout = '5000';
+            this.loading = false;
             console.log('FAILED...', error);
           });
       } else {
@@ -131,9 +136,8 @@ export default {
 }
 
 .part1 {
-  /* padding-top: 64px; */
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;

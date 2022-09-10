@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import router from './router'
+import i18n from './i18n'
 
 //vuetify import
 import vuetify from './plugins/vuetify'
@@ -17,6 +18,9 @@ Vue.use(Vue2TouchEvents, {
   disableClick: false,
   namespace: 'test'
 })
+
+import VueI18n from 'vue-i18n';
+Vue.use(VueI18n);
 
 // import VueScrollProgress from "vue-scroll-progress";
 //
@@ -44,5 +48,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   vuetify,
+  i18n,
   render: h => h(App),
 }).$mount('#app')

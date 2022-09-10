@@ -48,7 +48,7 @@
                 <v-col cols="4">
                   <transition name="fade" appear>
                     <div class="position-relative" v-if="animSection0 && animTown">
-                      <v-chip class="ma-2 justify-start white--text" :large="chipSize" color="primary" align="left" v-if="animSection0">
+                      <v-chip class="ma-1 ma-md-2 ma-lg-2 justify-start white--text" :large="chipSize" color="primary" align="left" v-if="animSection0">
                         <v-icon left :large="chipSize">
                           mdi-map-marker
                         </v-icon>
@@ -76,9 +76,10 @@
         </v-row>
       </v-container>
     </section>
+
     <section id="section1" class="fullpage">
       <transition name="slide-fade-tb">
-        <div class="text-lg-h3 text-md-h3 text-h5 mb-9 mt-3" v-if="animSection1">Vzdelanie</div>
+        <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection1">{{ $t('section2.title') }}</div>
       </transition>
       <v-container class="w-100 p-0 m-0">
         <v-timeline class="mt-3">
@@ -94,16 +95,16 @@
             <transition name="slide-fade-rl">
               <div class="py-4" v-if="animSection1">
                 <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
-                  {{schools[0].type}}
+                  {{ $t('section2.schools.first.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[0].name}}
+                  {{ $t('section2.schools.first.name') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[0].study_department}}
+                  {{ $t('section2.schools.first.study_department') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[0].type_of_work}}
+                  {{ $t('section2.schools.first.type_of_work') }}
                 </div>
               </div>
             </transition>
@@ -119,17 +120,17 @@
             </template>
             <transition name="slide-fade-lr">
               <div class="py-4" v-if="animSection1">
-                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[1].color}--text`">
-                  {{schools[1].type}}
+                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
+                  {{ $t('section2.schools.second.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[1].name}}
+                  {{ $t('section2.schools.second.name') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[1].study_department}}
+                  {{ $t('section2.schools.second.study_department') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[1].type_of_work}}
+                  {{ $t('section2.schools.second.type_of_work') }}
                 </div>
               </div>
             </transition>
@@ -145,17 +146,17 @@
             </template>
             <transition name="slide-fade-rl">
               <div class="py-4" v-if="animSection1">
-                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[2].color}--text`">
-                  {{schools[2].type}}
+                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
+                  {{ $t('section2.schools.third.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[2].name}}
+                  {{ $t('section2.schools.third.name') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[2].study_department}}
+                  {{ $t('section2.schools.third.study_department') }}
                 </div>
                 <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{schools[2].type_of_work}}
+                  {{ $t('section2.schools.third.type_of_work') }}
                 </div>
               </div>
             </transition>
@@ -190,7 +191,7 @@
     </section>
     <section id="section2" class="fullpage">
       <transition name="slide-fade-tb">
-        <div class="text-lg-h3 text-md-h3 text-h5 mb-9 mt-3" v-if="animSection2">Znalosti a zručnosti</div>
+        <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection2">{{ $t('section3.title') }}</div>
       </transition>
 
       <v-container class="d-flex flex-wrap w-100 p-0 m-0">
@@ -281,21 +282,21 @@
             <v-col class="pa-3 order-lg-2 order-md-2 order-3" lg="4" md="12" cols="12" v-if="animSection2">
               <v-progress-linear color="primary" buffer-value="0" value="100" height="70" rounded stream>
                 <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Anglický jazyk</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.second.skills1') }}</span>
                   <span class="text-lg-subtitle-2 text-caption text-white">B1</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
                 <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Nemecký jazyk</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.second.skills2') }}</span>
                   <span class="text-lg-subtitle-2 text-caption text-white">A1</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
                 <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Vodičský preukaz</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.second.skills3') }}</span>
                   <span class="text-lg-subtitle-2 text-caption text-white">B</span>
                 </div>
               </v-progress-linear>
@@ -306,43 +307,43 @@
             <v-col class="pa-3 order-lg-3 order-md-3 order-2" lg="4" md="6" cols="12" v-if="animSection2">
               <v-progress-linear color="primary" buffer-value="0" value="60" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Komunikačné schopnosti</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills1') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Kreativita</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills2') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Flexibilita</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills3') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Medziľudské vzťahy</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills4') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Zodpovednosť</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills5') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Tímová práca</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills6') }}</span>
                 </div>
               </v-progress-linear>
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Riadenie času</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills7') }}</span>
                 </div>
               </v-progress-linear>
             </v-col>
@@ -353,7 +354,7 @@
 
     <section id="section3" class="fullpage">
       <transition name="slide-fade-tb">
-        <div class="text-lg-h3 text-md-h3 text-h5 mb-9 mt-3" v-if="animSection3">Záľuby</div>
+        <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection3">{{ $t('section4.title') }}</div>
       </transition>
 
       <v-container class="text-center w-100 p-0 m-0">
@@ -373,7 +374,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            videohry
+                            {{ $t('section4.first.number1') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -394,7 +395,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Hudba
+                            {{ $t('section4.first.number2') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -415,7 +416,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Filmy a seriály
+                            {{ $t('section4.first.number3') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -439,7 +440,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Futbal
+                            {{ $t('section4.second.number1') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -460,7 +461,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Posilňovanie
+                            {{ $t('section4.second.number2') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -481,7 +482,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Korčuľovanie
+                            {{ $t('section4.second.number3') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -505,7 +506,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Rybolov
+                            {{ $t('section4.third.number1') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -526,7 +527,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Plávanie
+                            {{ $t('section4.third.number2') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -547,7 +548,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Bicyklovanie
+                            {{ $t('section4.third.number3') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -571,7 +572,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Varenie
+                            {{ $t('section4.fourth.number1') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -592,7 +593,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Pestovanie
+                            {{ $t('section4.fourth.number2') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -613,7 +614,7 @@
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
-                            Turistika
+                            {{ $t('section4.fourth.number3') }}
                           </v-btn>
                         </v-overlay>
                       </v-fade-transition>
@@ -629,7 +630,7 @@
 
     <section id="section4" class="fullpage">
       <transition name="slide-fade-tb">
-        <div class="text-lg-h3 text-md-h3 text-h5 mb-9 mt-3" v-if="animSection4">Portfólio</div>
+        <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection4">{{ $t('section5.title') }}</div>
       </transition>
 
       <v-container class="w-100 p-0 m-0">
@@ -642,10 +643,10 @@
 
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card dark class="w-100 mx-auto" elevation="0">
+                  <v-card dark class="w-100 mx-auto" elevation="0" tile>
                     <v-img style="cursor: pointer" :lazy-src="require('../assets/img/cabin/32.png')" :src="require('../assets/img/cabin/32.png')" height="250">
                       <template v-slot:placeholder>
-                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" >
+                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" tile>
                             <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                         </v-card>
                       </template>
@@ -653,7 +654,7 @@
                     <v-fade-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog1 = true">
-                          <span>viac informácií</span>
+                          <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
@@ -663,18 +664,18 @@
               </v-hover>
 
               <v-dialog v-model="dialog1" scrollable fullscreen hide-overlay transition="dialog-bottom-transition">
-                <v-card class="mx-auto">
+                <v-card class="mx-auto" tile>
                   <v-toolbar color="primary" dark elevation="0">
                     <v-btn class="anim" icon dark @click="dialog1 = false">
                       <v-icon class="arrow2">mdi-arrow-left</v-icon>
                     </v-btn>
-                    <v-toolbar-title>Decentralizovaná sociálna sieť</v-toolbar-title>
+                    <v-toolbar-title>{{ $t('section5.dialog1.text') }}</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0 ">
                       <v-row>
                         <v-col v-for="(image, index) in media" :key="'media' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
-                          <v-card class="card_images" elevation="0">
+                          <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -694,10 +695,10 @@
               <!-- //////////////////////////////////////////////////////////////////////////////////////////cabin -->
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card dark class="w-100 mx-auto mt-6 mt-lg-16 mt-md-16" elevation="0">
+                  <v-card dark class="w-100 mx-auto mt-6 mt-lg-16 mt-md-16" elevation="0" tile>
                     <v-img style="cursor: pointer" :lazy-src="require('../assets/img/cabin/32.png')" :src="require('../assets/img/cabin/32.png')" height="250">
                       <template v-slot:placeholder>
-                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" >
+                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" tile>
                             <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                         </v-card>
                       </template>
@@ -705,7 +706,7 @@
                     <v-fade-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog2 = true">
-                          <span>viac informácií</span>
+                            <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
@@ -720,13 +721,13 @@
                     <v-btn class="anim" icon dark @click="dialog2 = false">
                       <v-icon class="arrow2">mdi-arrow-left</v-icon>
                     </v-btn>
-                    <v-toolbar-title>Byšta</v-toolbar-title>
+                    <v-toolbar-title>{{ $t('section5.dialog2.text') }}</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0 ">
                       <v-row>
                         <v-col v-for="(image, index) in media2" :key="'media2' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
-                          <v-card class="card_images" elevation="0">
+                          <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -750,10 +751,10 @@
               <!-- py-0 py-lg-8 py-md-8  -->
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card dark class="w-100 mx-auto" elevation="0">
+                  <v-card dark class="w-100 mx-auto" elevation="0" tile>
                     <v-img style="cursor: pointer" :lazy-src="require('../assets/img/cabin/32.png')" :src="require('../assets/img/cabin/32.png')" height="250">
                       <template v-slot:placeholder>
-                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" >
+                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" tile>
                             <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                         </v-card>
                       </template>
@@ -761,7 +762,7 @@
                     <v-fade-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog3 = true">
-                          <span>viac informácií</span>
+                            <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
@@ -776,13 +777,13 @@
                     <v-btn class="anim" icon dark @click="dialog3 = false">
                       <v-icon class="arrow2">mdi-arrow-left</v-icon>
                     </v-btn>
-                    <v-toolbar-title>OpenLab</v-toolbar-title>
+                    <v-toolbar-title>{{ $t('section5.dialog3.text') }}</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0">
                       <v-row>
                         <v-col v-for="(image, index) in media3" :key="'media3' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
-                          <v-card class="card_images" elevation="0">
+                          <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -801,10 +802,10 @@
 
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card dark class="w-100 mx-auto mt-6 mt-lg-16 mt-md-16" elevation="0">
+                  <v-card dark class="w-100 mx-auto mt-6 mt-lg-16 mt-md-16" elevation="0" tile>
                     <v-img style="cursor: pointer" :lazy-src="require('../assets/img/cabin/32.png')" :src="require('../assets/img/cabin/32.png')" height="250">
                       <template v-slot:placeholder>
-                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" >
+                        <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" tile>
                             <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                         </v-card>
                       </template>
@@ -812,7 +813,7 @@
                     <v-fade-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog4 = true">
-                          <span>viac informácií</span>
+                            <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
@@ -827,13 +828,13 @@
                     <v-btn class="anim" icon dark @click="dialog4 = false">
                       <v-icon class="arrow2">mdi-arrow-left</v-icon>
                     </v-btn>
-                    <v-toolbar-title>Parser</v-toolbar-title>
+                    <v-toolbar-title>{{ $t('section5.dialog4.text') }}</v-toolbar-title>
                   </v-toolbar>
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0">
                       <v-row>
                         <v-col v-for="(image, index) in media4" :key="'media4' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
-                          <v-card class="card_images" elevation="0">
+                          <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -856,7 +857,7 @@
       </v-container>
     </section>
 
-    <section id="section5" class="fullpage pt-0">
+    <section id="section5" class="fullpage">
       <Footer />
     </section>
   </div>
@@ -1316,17 +1317,17 @@ export default {
     },
 
     poh() {
-      if (this.poh >= this.sectionPositionsValues[0] && this.poh < this.sectionPositionsValues[1]) {
+      if (this.poh >= this.offsets[0] && this.poh < this.offsets[1]) {
         this.activeSection = 0;
-      } else if (this.poh >= this.sectionPositionsValues[1] && this.poh < this.sectionPositionsValues[2]) {
+      } else if (this.poh >= this.offsets[1] && this.poh < this.offsets[2]) {
         this.activeSection = 1;
-      } else if (this.poh >= this.sectionPositionsValues[2] && this.poh < this.sectionPositionsValues[3]) {
+      } else if (this.poh >= this.offsets[2] && this.poh < this.offsets[3]) {
         this.activeSection = 2;
-      } else if (this.poh >= this.sectionPositionsValues[3] && this.poh < this.sectionPositionsValues[4]) {
+      } else if (this.poh >= this.offsets[3] && this.poh < this.offsets[4]) {
         this.activeSection = 3;
-      } else if (this.poh >= this.sectionPositionsValues[4] && this.poh < this.sectionPositionsValues[5]) {
+      } else if (this.poh >= this.offsets[4] && this.poh < this.offsets[5]) {
         this.activeSection = 4;
-      } else if (this.poh >= this.sectionPositionsValues[5]) {
+      } else if (this.poh >= this.offsets[5]) {
         this.activeSection = 5;
       }
 
@@ -1335,6 +1336,7 @@ export default {
 
     activeAnimation() {
       if (this.activeAnimation == 'section0') {
+        this.animTown = false;
         this.animSection0 = false;
         setTimeout(() => {
           this.animSection0 = true;
@@ -1346,31 +1348,26 @@ export default {
         this.animSection1 = false;
         setTimeout(() => {
           this.animSection1 = true;
-          this.animTown = false;
         }, 200);
       } else if (this.activeAnimation == 'section2') {
         this.animSection2 = false;
         setTimeout(() => {
           this.animSection2 = true;
-          this.animTown = false;
         }, 200);
       } else if (this.activeAnimation == 'section3') {
         this.animSection3 = false;
         setTimeout(() => {
           this.animSection3 = true;
-          this.animTown = false;
         }, 200);
       } else if (this.activeAnimation == 'section4') {
         this.animSection4 = false;
         setTimeout(() => {
           this.animSection4 = true;
-          this.animTown = false;
         }, 200);
       } else {
         this.animSection5 = false;
         setTimeout(() => {
           this.animSection5 = true;
-          this.animTown = false;
         }, 200);
       }
     }
@@ -1380,27 +1377,17 @@ export default {
     this.calculateSectionOffsets();
     this.whatSection();
 
-    this.sectionPositionsValues.splice(0, 5);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section0').getBoundingClientRect().top);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section1').getBoundingClientRect().top);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section2').getBoundingClientRect().top);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section3').getBoundingClientRect().top);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section4').getBoundingClientRect().top);
-    this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section5').getBoundingClientRect().top);
-    this.$emit('sectionPositions', this.sectionPositionsValues);
+    // this.sectionPositionsValues = [];
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section0').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section1').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section2').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section3').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section4').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section5').getBoundingClientRect().top);
+    // this.$emit('sectionPositions', this.sectionPositionsValues);
   },
 
   updated() {
-    window.addEventListener('resize', () => {
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section0').getBoundingClientRect().top);
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section1').getBoundingClientRect().top);
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section2').getBoundingClientRect().top);
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section3').getBoundingClientRect().top);
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section4').getBoundingClientRect().top);
-      this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section5').getBoundingClientRect().top);
-      this.$emit('sectionPositions', this.sectionPositionsValues);
-    });
-
     localStorage.setItem('activeSection', this.activeSection);
     let section = localStorage.getItem('activeSection');
 
@@ -1428,6 +1415,7 @@ export default {
     whatSection() {
       let section = JSON.parse(localStorage.getItem('activeSection'))
       if (section == 0) {
+        this.animTown = false;
         this.animSection0 = false;
         setTimeout(() => {
           this.animSection0 = true;
@@ -1439,31 +1427,26 @@ export default {
         this.animSection1 = false;
         setTimeout(() => {
           this.animSection1 = true;
-          this.animTown = false;
         }, 200);
       } else if (section == 2) {
         this.animSection2 = false;
         setTimeout(() => {
           this.animSection2 = true;
-          this.animTown = false;
         }, 200);
       } else if (section == 3) {
         this.animSection3 = false;
         setTimeout(() => {
           this.animSection3 = true;
-          this.animTown = false;
         }, 200);
       } else if (section == 4) {
         this.animSection4 = false;
         setTimeout(() => {
           this.animSection4 = true;
-          this.animTown = false;
         }, 200);
       } else {
         this.animSection5 = false;
         setTimeout(() => {
           this.animSection5 = true;
-          this.animTown = false;
         }, 200);
       }
     },
@@ -1472,24 +1455,30 @@ export default {
       let sections = document.getElementsByTagName('section');
       let length = sections.length;
 
+      this.offsets = [];
       for (let i = 0; i < length; i++) {
         let sectionOffset = sections[i].offsetTop;
         this.offsets.push(sectionOffset);
       }
+
+      this.$emit('sectionPositions', this.offsets);
     },
 
     handleMouseWheel: function(e) {
-      if (e.wheelDelta < 30 && !this.inMove) {
-        this.moveUp();
-      } else if (e.wheelDelta > 30 && !this.inMove) {
-        this.moveDown();
-      }
+      if (this.dialog1 == false && this.dialog2 == false && this.dialog3 == false && this.dialog4 == false) {
+        if (e.wheelDelta < 30 && !this.inMove) {
+          this.moveUp();
+        } else if (e.wheelDelta > 30 && !this.inMove) {
+          this.moveDown();
+        }
 
-      e.preventDefault();
-      return false;
+        e.preventDefault();
+        return false;
+      }
     },
 
     handleMouseWheelDOM: function(e) {
+      console.log("hmm");
       if (e.detail > 0 && !this.inMove) {
         this.moveUp();
       } else if (e.detail < 0 && !this.inMove) {
@@ -1529,6 +1518,7 @@ export default {
       this.inMove = true;
 
       if (id == 0) {
+        this.animTown = false;
         this.animSection0 = false;
         setTimeout(() => {
           this.animSection0 = true;
@@ -1540,31 +1530,26 @@ export default {
         this.animSection1 = false;
         setTimeout(() => {
           this.animSection1 = true;
-          this.animTown = false;
         }, 200);
       } else if (id == 2) {
         this.animSection2 = false;
         setTimeout(() => {
           this.animSection2 = true;
-          this.animTown = false;
         }, 200);
       } else if (id == 3) {
         this.animSection3 = false;
         setTimeout(() => {
           this.animSection3 = true;
-          this.animTown = false;
         }, 200);
       } else if (id == 4) {
         this.animSection4 = false;
         setTimeout(() => {
           this.animSection4 = true;
-          this.animTown = false;
         }, 200);
       } else {
         this.animSection5 = false;
         setTimeout(() => {
           this.animSection5 = true;
-          this.animTown = false;
         }, 200);
       }
       document.getElementsByTagName('section')[id].scrollIntoView({
@@ -1580,21 +1565,28 @@ export default {
   created() {
     this.calculateSectionOffsets();
 
-    if (this.dialog == false && this.dialog2 == false && this.dialog3 == false && this.dialog4 == false) {
+    if (this.dialog1 == false && this.dialog2 == false && this.dialog3 == false && this.dialog4 == false) {
       window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
       window.addEventListener('mousewheel', this.handleMouseWheel, {
         passive: false
       }); // Other browsers
     }
+
+    window.addEventListener('resize', () => {
+      this.calculateSectionOffsets();
+    });
   },
   destroyed() {
-    console.log("here");
-    if (this.dialog == false && this.dialog2 == false && this.dialog3 == false && this.dialog4 == false) {
+    if (this.dialog1 == false && this.dialog2 == false && this.dialog3 == false && this.dialog4 == false) {
       window.removeEventListener('mousewheel', this.handleMouseWheel, {
         passive: false
       }); // Other browsers
       window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
     }
+
+    window.removeEventListener('resize', () => {
+      this.calculateSectionOffsets();
+    });
   }
 }
 </script>
@@ -1697,5 +1689,9 @@ export default {
 
 .theme--light .card_images {
     background-color: #f5f5f5 !important;
+}
+
+.v-sheet.v-card {
+    border-radius: 0;
 }
 </style>

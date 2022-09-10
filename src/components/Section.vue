@@ -902,6 +902,14 @@ export default {
   mounted() {
     this.calculateSectionOffsets();
     this.whatSection();
+    // this.sectionPositionsValues = [];
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section0').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section1').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section2').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section3').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section4').getBoundingClientRect().top);
+    // this.sectionPositionsValues.push(window.scrollY + document.querySelector('#section5').getBoundingClientRect().top);
+    // this.$emit('sectionPositions', this.sectionPositionsValues);
     // console.log(window.scrollY + document.querySelector('#section0').getBoundingClientRect().top);
     // console.log(window.scrollY + document.querySelector('#section1').getBoundingClientRect().top);
     // console.log(window.scrollY + document.querySelector('#section2').getBoundingClientRect().top);
