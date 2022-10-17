@@ -1,5 +1,5 @@
 <template>
-<div class="home">
+<div class="section">
   <Header :nos="nos" @toSectionFromHeader="numberOfSectionFromHeader" @activeAnimationFromHeader="nameOfAnimatedSection" />
   <Section :gtt="gtt" class="position-relative" :nosfh="nosfh" :activeAnimation="activeAnimation" @toNumberFromSection="numberOfSectionFromSection" @resetGtt="stateResetGtt" />
 
@@ -12,7 +12,7 @@ import Section from "../components/Section.vue";
 import Header from "../components/Header.vue";
 
 export default {
-  name: "Home",
+  name: "Section",
   props: [],
   components: {
     Section,

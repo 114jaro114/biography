@@ -4,7 +4,7 @@
     <!-- <router-view /> -->
     <Header :nos="nos" :sp="sp" @positionOfHeader="numberOfHeaderPosition" @activeAnimationFromHeader="nameOfAnimatedSection" />
     <!-- @toSectionFromHeader="numberOfSectionFromHeader" -->
-    <Home :gtt="gtt" :poh="poh" @sectionPositions="numberOfPositionsEachSections" class="position-relative" :activeAnimation="activeAnimation" @toNumberFromSection="numberOfSectionFromSection" @resetGtt="stateResetGtt" />
+    <Section :gtt="gtt" :poh="poh" @sectionPositions="numberOfPositionsEachSections" class="position-relative" :activeAnimation="activeAnimation" @toNumberFromSection="numberOfSectionFromSection" @resetGtt="stateResetGtt" />
     <!-- style="top:64px"  -->
     <!-- :nosfh="nosfh" -->
     <v-fab-transition>
@@ -18,12 +18,12 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import Home from "@/components/Home.vue";
+import Section from "@/components/Section.vue";
 export default {
   name: 'App',
   components: {
     Header,
-    Home,
+    Section,
   },
   data() {
     return {
@@ -48,6 +48,21 @@ export default {
       } else {
         this.$vuetify.theme.dark = false;
       }
+    }
+
+    if (JSON.parse(localStorage.getItem("activeSection")) == null) {
+      console.log("here");
+      localStorage.setItem("activeSection", 0);
+    }
+
+    if (JSON.parse(localStorage.getItem("dark_theme")) == null) {
+      localStorage.setItem("dark_theme", false);
+    }
+
+    if (localStorage.getItem("language") == "sk") {
+      this.$root.$i18n.locale = 'sk';
+    } else {
+      this.$root.$i18n.locale = 'en';
     }
   },
 

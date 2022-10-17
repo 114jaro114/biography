@@ -14,7 +14,10 @@
     <v-card flat tile class="text-center part1">
       <v-container class="p-0 container-footer">
         <transition name="slide-fade-tb">
-          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">{{ $t('section6.title') }}</v-card-title>
+          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">
+            <v-icon class="mr-3 mt-0 mt-lg-1 mt-md-1" color="primary" :large="iconSize">mdi-email-fast</v-icon>
+            {{ $t('section6.title') }}
+          </v-card-title>
         </transition>
         <!-- <v-divider class="mt-0" /> -->
         <v-col cols="10" sm="10" md="6" lg="6" class="p-0">
@@ -24,7 +27,7 @@
             <v-textarea v-model="message" :rules="messageRules" :counter="1000" :label="$t('section6.form.msg')" tabindex="1" filled clearable auto-grow></v-textarea>
 
             <div class="">
-              <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="ma-1" @click="sendMessage" rounded>
+              <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="ma-1" @click="showDialog" rounded>
                 {{ $t('section6.buttons.n1') }}
               </v-btn>
 
@@ -34,14 +37,37 @@
             </div>
           </v-form>
         </v-col>
+
+        <v-dialog v-model="dialog" persistent max-width="360">
+          <v-card>
+            <v-card-title class="text-h5">
+              {{ $t('section6.dialog.title') }}
+            </v-card-title>
+            <v-card-text>
+              <p>{{ $t('section6.dialog.t1') }} <span class="font-weight-bold">{{name}}</span>,</p> {{ $t('section6.dialog.t2') }} <span class="font-weight-bold">{{email}}</span> {{ $t('section6.dialog.t3') }}
+            </v-card-text>
+            <v-card-text><span class="font-weight-bold">
+                <v-icon color="error">mdi-alert-circle</v-icon> {{ $t('section6.dialog.t4') }}
+              </span></v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="warning" text @click="editEmail">
+                {{ $t('section6.dialog.buttons.n1') }}
+              </v-btn>
+              <v-btn color="primary" :loading="loadingConfirm" text @click="sendMessage">
+                {{ $t('section6.dialog.buttons.n2') }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-container>
 
       <div class="container-footer2">
         <v-divider class="mt-0 mb-0" />
         <v-card-text class="justify-space-around">
           <v-icon color="primary" small>mdi-copyright</v-icon> {{ new Date().getFullYear() }} — <span>{{ $t('section6.bottompart.t1') }} <strong>
-              <v-icon color="primary" small>mdi-heart-outline</v-icon>
-            </strong> {{ $t('section6.bottompart.t2') }} <strong class="primary--text">{{ $t('section6.bottompart.t3') }}</strong>
+              <!-- <v-icon color="primary" small>mdi-heart-outline</v-icon> -->
+            </strong> {{ $t('section6.bottompart.t2') }} <strong class="primary--text">{{ $t('section6.bottompart.t3') }}.</strong>
           </span>
         </v-card-text>
       </div>
@@ -80,15 +106,58 @@ export default {
       ],
 
       loading: false,
+      loadingConfirm: false,
+      iconLarge: false,
+      dialog: false,
     }
+  },
+
+  computed: {
+    iconSize() {
+      let iconLarge = false;
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          iconLarge = false
+          break;
+        case 'sm':
+          iconLarge = false
+          break;
+        case 'md':
+          iconLarge = true
+          break;
+        case 'lg':
+          iconLarge = true
+          break;
+        case 'xl':
+          iconLarge = true;
+      }
+      return iconLarge;
+    },
   },
 
   methods: {
     validate() {
       return this.$refs.form.validate();
     },
-    sendMessage() {
+
+    showDialog() {
       this.loading = true;
+      if (this.validate()) {
+        this.valid = true;
+        this.dialog = true;
+      } else {
+        this.loading = false;
+        return
+      }
+    },
+
+    editEmail() {
+      this.dialog = false;
+      this.loading = false;
+    },
+
+    sendMessage() {
+      this.loadingConfirm = true;
       // validate form
       if (this.validate()) {
         this.valid = true;
@@ -105,6 +174,8 @@ export default {
             this.snackbarColor = 'success';
             this.snackbarTimeout = '5000';
             this.loading = false;
+            this.loadingConfirm = false;
+            this.dialog = false;
             this.$refs.form.reset();
             // reset form
           }, function(error) {
@@ -113,10 +184,12 @@ export default {
             this.snackbarColor = 'error';
             this.snackbarTimeout = '5000';
             this.loading = false;
+            this.loadingConfirm = false;
+            this.dialog = false;
             console.log('FAILED...', error);
           });
       } else {
-        this.loading = false;
+        this.loadingConfirm = false;
         return
       }
     },

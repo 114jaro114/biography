@@ -1,22 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
-import Home0 from '../views/Home0.vue'
+import Section from '../views/Section.vue'
 
 Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
-  name: 'Home',
-  component: Home,
-  meta: {
-    allowAnonymous: true
-  },
-}, {
-  path: '/test',
-  name: 'Home0',
-  component: Home0,
+  name: 'Section',
+  component: Section,
   meta: {
     allowAnonymous: true
   },
