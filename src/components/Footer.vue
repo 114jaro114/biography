@@ -14,7 +14,8 @@
     <v-card flat tile class="text-center part1">
       <v-container class="p-0 container-footer">
         <transition name="slide-fade-tb">
-          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 mt-3 mb-6 justify-center">
+          <v-card-title class="pl-0 primary--text text-lg-h3 text-md-h3 text-h5 justify-center">
+            <!-- mt-3 mb-6  -->
             <v-icon class="mr-3 mt-0 mt-lg-1 mt-md-1" color="primary" :large="iconSize">mdi-email-fast</v-icon>
             {{ $t('section6.title') }}
           </v-card-title>

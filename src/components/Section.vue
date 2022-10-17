@@ -352,6 +352,7 @@
       </v-container>
     </section>
 
+    <!-- hobbies -->
     <section id="section3" class="fullpage">
       <transition name="slide-fade-tb">
         <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection3">{{ $t('section4.title') }}</div>
@@ -1553,17 +1554,18 @@ export default {
     },
 
     poh() {
-      if (this.poh >= this.offsets[0] && this.poh < this.offsets[1]) {
+      let rpoh = Math.round(this.poh)
+      if (rpoh >= this.offsets[0] && rpoh < this.offsets[1]) {
         this.activeSection = 0;
-      } else if (this.poh >= this.offsets[1] && this.poh < this.offsets[2]) {
+      } else if (rpoh >= this.offsets[1] && rpoh < this.offsets[2]) {
         this.activeSection = 1;
-      } else if (this.poh >= this.offsets[2] && this.poh < this.offsets[3]) {
+      } else if (rpoh >= this.offsets[2] && rpoh < this.offsets[3]) {
         this.activeSection = 2;
-      } else if (this.poh >= this.offsets[3] && this.poh < this.offsets[4]) {
+      } else if (rpoh >= this.offsets[3] && rpoh < this.offsets[4]) {
         this.activeSection = 3;
-      } else if (this.poh >= this.offsets[4] && this.poh < this.offsets[5]) {
+      } else if (rpoh >= this.offsets[4] && rpoh < this.offsets[5]) {
         this.activeSection = 4;
-      } else if (this.poh >= this.offsets[5]) {
+      } else if (rpoh >= this.offsets[5]) {
         this.activeSection = 5;
       }
 
@@ -1571,6 +1573,7 @@ export default {
     },
 
     activeAnimation() {
+      console.log("here");
       if (this.activeAnimation == 'section0') {
         this.animTown = false;
         this.animSection0 = false;
@@ -1632,17 +1635,25 @@ export default {
   mounted() {
     this.calculateSectionOffsets();
     this.whatSection();
+
+    if (JSON.parse(localStorage.getItem("activeSection")) == null) {
+      localStorage.setItem("activeSection", 0);
+      this.activeSection = JSON.parse(localStorage.getItem('activeSection'));
+      this.$emit('toNumberFromSection', this.activeSection);
+    } else {
+      this.activeSection = JSON.parse(localStorage.getItem('activeSection'));
+      this.$emit('toNumberFromSection', this.activeSection);
+    }
   },
 
   updated() {
-    console.log("updated");
     // if (this.activeSection == null) {
     //   localStorage.setItem("activeSection", 0);
     // } else {
     //   localStorage.setItem('activeSection', this.activeSection);
     // }
-
-
+    //
+    //
     // let section = JSON.parse(localStorage.getItem('activeSection'));
     // if (section == 0) {
     //   this.showSection0 = true;
@@ -1731,7 +1742,6 @@ export default {
     },
 
     handleMouseWheelDOM: function(e) {
-      console.log("hmm");
       if (e.detail > 0 && !this.inMove) {
         this.moveUp();
       } else if (e.detail < 0 && !this.inMove) {

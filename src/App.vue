@@ -50,11 +50,6 @@ export default {
       }
     }
 
-    if (JSON.parse(localStorage.getItem("activeSection")) == null) {
-      console.log("here");
-      localStorage.setItem("activeSection", 0);
-    }
-
     if (JSON.parse(localStorage.getItem("dark_theme")) == null) {
       localStorage.setItem("dark_theme", false);
     }
