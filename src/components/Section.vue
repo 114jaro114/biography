@@ -68,7 +68,7 @@
           <transition name="slide-fade-rl">
             <v-col cols="12" lg="4" md="4" class="order-lg-2 order-md-2 order-1 mb-10 mb-lg-0 mb-md-0" v-if="animSection0">
               <v-row no-gutters justify="center">
-                <v-avatar size="250" class="pt-1">
+                <v-avatar :size="profilePhotoSize" class="pt-1">
                   <v-img :lazy-src="require('../assets/img/profile_photo.jpg')" :src="require('../assets/img/profile_photo.jpg')" />
                 </v-avatar>
               </v-row>
@@ -973,6 +973,8 @@ export default {
       chipLarge: false,
       chipMedium: false,
 
+      actualWidth: window.innerWidth,
+
       media: [{ // For a video that can be played in the <video> tag
         type: 'video',
         thumb: 'https://www.dropbox.com/s/w5ya61l7k9jmdlw/1.png?raw=1',
@@ -980,9 +982,9 @@ export default {
           src: 'https://www.dropbox.com/s/gui0k0vgr43n4gi/video_app.mp4?raw=1',
           type: 'video/mp4'
         }],
-        caption: '1',
-        width: 800, // Required
-        height: 600, // Required
+        caption: '',
+        width: this.actualWidth * 0.8, // Required
+        height: (this.actualWidth / 4) * 3, // Required
         autoplay: true // Optional: Autoplay video when the lightbox opens
       }],
 
@@ -991,206 +993,206 @@ export default {
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/mlc8vc0sz9qjgbe/1.png?raw=1',
           src: 'https://www.dropbox.com/s/mlc8vc0sz9qjgbe/1.png?raw=1',
-          caption: '1', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/mlc8vc0sz9qjgbe/1.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/jvcp5gv0qev56x8/2.png?raw=1',
           src: 'https://www.dropbox.com/s/jvcp5gv0qev56x8/2.png?raw=1',
-          caption: '2', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/jvcp5gv0qev56x8/2.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/f1b8uia6467avwf/3.png?raw=1',
           src: 'https://www.dropbox.com/s/f1b8uia6467avwf/3.png?raw=1',
-          caption: '3', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/f1b8uia6467avwf/3.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/t5ptww9ohi6ijv9/4.png?raw=1',
           src: 'https://www.dropbox.com/s/t5ptww9ohi6ijv9/4.png?raw=1',
-          caption: '4', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/t5ptww9ohi6ijv9/4.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/aeldtjlh1889zve/5.png?raw=1',
           src: 'https://www.dropbox.com/s/aeldtjlh1889zve/5.png?raw=1',
-          caption: '5', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/aeldtjlh1889zve/5.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/6hbrj2wp5ho66nz/6.png?raw=1',
           src: 'https://www.dropbox.com/s/6hbrj2wp5ho66nz/6.png?raw=1',
-          caption: '6', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/6hbrj2wp5ho66nz/6.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/jwwojv6o9upexhh/7.png?raw=1',
           src: 'https://www.dropbox.com/s/jwwojv6o9upexhh/7.png?raw=1',
-          caption: '7', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/jwwojv6o9upexhh/7.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/2vtrtqq511a6cfg/8.png?raw=1',
           src: 'https://www.dropbox.com/s/2vtrtqq511a6cfg/8.png?raw=1',
-          caption: '8', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/2vtrtqq511a6cfg/8.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/5z741pc4m4b2j2p/9.png?raw=1',
           src: 'https://www.dropbox.com/s/5z741pc4m4b2j2p/9.png?raw=1',
-          caption: '9', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/5z741pc4m4b2j2p/9.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ng6rznhmywa4ugu/10.png?raw=1',
           src: 'https://www.dropbox.com/s/ng6rznhmywa4ugu/10.png?raw=1',
-          caption: '10', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ng6rznhmywa4ugu/10.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/0ngq2orfnnrlin3/11.png?raw=1',
           src: 'https://www.dropbox.com/s/0ngq2orfnnrlin3/11.png?raw=1',
-          caption: '11', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/0ngq2orfnnrlin3/11.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/arbyd5csoub2xzn/12.png?raw=1',
           src: 'https://www.dropbox.com/s/arbyd5csoub2xzn/12.png?raw=1',
-          caption: '12', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/arbyd5csoub2xzn/12.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/b3g21hldd9d8sgb/13.png?raw=1',
           src: 'https://www.dropbox.com/s/b3g21hldd9d8sgb/13.png?raw=1',
-          caption: '13', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/b3g21hldd9d8sgb/13.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ihds6kdn7ff88i4/14.png?raw=1',
           src: 'https://www.dropbox.com/s/ihds6kdn7ff88i4/14.png?raw=1',
-          caption: '14', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ihds6kdn7ff88i4/14.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/22n1kc6nfdset7n/15.png?raw=1',
           src: 'https://www.dropbox.com/s/22n1kc6nfdset7n/15.png?raw=1',
-          caption: '15', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/22n1kc6nfdset7n/15.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/jiuk9yf4nkb5mfi/16.png?raw=1',
           src: 'https://www.dropbox.com/s/jiuk9yf4nkb5mfi/16.png?raw=1',
-          caption: '16', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/jiuk9yf4nkb5mfi/16.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/s3bv818qknad5kk/17.png?raw=1',
           src: 'https://www.dropbox.com/s/s3bv818qknad5kk/17.png?raw=1',
-          caption: '17', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/s3bv818qknad5kk/17.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/7cw8qpum1naycem/18.png?raw=1',
           src: 'https://www.dropbox.com/s/7cw8qpum1naycem/18.png?raw=1',
-          caption: '18', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/7cw8qpum1naycem/18.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/fgdgctcxgdksmvj/19.png?raw=1',
           src: 'https://www.dropbox.com/s/fgdgctcxgdksmvj/19.png?raw=1',
-          caption: '19', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/fgdgctcxgdksmvj/19.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/xrxikrck4cijvo2/20.png?raw=1',
           src: 'https://www.dropbox.com/s/xrxikrck4cijvo2/20.png?raw=1',
-          caption: '20', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/xrxikrck4cijvo2/20.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/kc3qz4k0rowreu8/21.png?raw=1',
           src: 'https://www.dropbox.com/s/kc3qz4k0rowreu8/21.png?raw=1',
-          caption: '21', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/kc3qz4k0rowreu8/21.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/odda5g8beqr4i86/22.png?raw=1',
           src: 'https://www.dropbox.com/s/odda5g8beqr4i86/22.png?raw=1',
-          caption: '22', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/odda5g8beqr4i86/22.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/6wh1b8osihgolr9/23.png?raw=1',
           src: 'https://www.dropbox.com/s/6wh1b8osihgolr9/23.png?raw=1',
-          caption: '23', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/6wh1b8osihgolr9/23.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/dbjhyc5g279hw2m/24.png?raw=1',
           src: 'https://www.dropbox.com/s/dbjhyc5g279hw2m/24.png?raw=1',
-          caption: '24', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/dbjhyc5g279hw2m/24.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/y58m07ihpw2gy0s/25.png?raw=1',
           src: 'https://www.dropbox.com/s/y58m07ihpw2gy0s/25.png?raw=1',
-          caption: '25', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/y58m07ihpw2gy0s/25.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/p3kv3z2fe42w4on/26.png?raw=1',
           src: 'https://www.dropbox.com/s/p3kv3z2fe42w4on/26.png?raw=1',
-          caption: '26', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/p3kv3z2fe42w4on/26.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ltzbe8f5mz3zzuu/27.png?raw=1',
           src: 'https://www.dropbox.com/s/ltzbe8f5mz3zzuu/27.png?raw=1',
-          caption: '27', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ltzbe8f5mz3zzuu/27.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/h78sisi84eyj0j6/28.png?raw=1',
           src: 'https://www.dropbox.com/s/h78sisi84eyj0j6/28.png?raw=1',
-          caption: '28', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/h78sisi84eyj0j6/28.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/0br101ivo38sm6s/29.png?raw=1',
           src: 'https://www.dropbox.com/s/0br101ivo38sm6s/29.png?raw=1',
-          caption: '29', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/0br101ivo38sm6s/29.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/puyp1sawndf5g2z/30.png?raw=1',
           src: 'https://www.dropbox.com/s/puyp1sawndf5g2z/30.png?raw=1',
-          caption: '30', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/puyp1sawndf5g2z/30.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/6d2lfjhu2o741j3/31.png?raw=1',
           src: 'https://www.dropbox.com/s/6d2lfjhu2o741j3/31.png?raw=1',
-          caption: '31', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/6d2lfjhu2o741j3/31.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/281id5ml8wzi6om/32.png?raw=1',
           src: 'https://www.dropbox.com/s/281id5ml8wzi6om/32.png?raw=1',
-          caption: '32', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/281id5ml8wzi6om/32.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/2kf2j1eeyrksntu/33.png?raw=1',
           src: 'https://www.dropbox.com/s/2kf2j1eeyrksntu/33.png?raw=1',
-          caption: '33', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/2kf2j1eeyrksntu/33.png?raw=1' // Optional for displaying responsive images
         },
         // { // For a video that can be played in the <video> tag
@@ -1211,206 +1213,206 @@ export default {
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/kdg35b6qlleeobj/1.png?raw=1',
           src: 'https://www.dropbox.com/s/kdg35b6qlleeobj/1.png?raw=1',
-          caption: '1', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/kdg35b6qlleeobj/1.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/3kfi5gdrib77f9o/2.png?raw=1',
           src: 'https://www.dropbox.com/s/3kfi5gdrib77f9o/2.png?raw=1',
-          caption: '2', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/3kfi5gdrib77f9o/2.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/jx3vadpmamhsg75/3.png?raw=1',
           src: 'https://www.dropbox.com/s/jx3vadpmamhsg75/3.png?raw=1',
-          caption: '3', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/jx3vadpmamhsg75/3.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/04oie924efs07b3/4.png?raw=1',
           src: 'https://www.dropbox.com/s/04oie924efs07b3/4.png?raw=1',
-          caption: '4', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/04oie924efs07b3/4.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/unq20904s0dzg73/5.png?raw=1',
           src: 'https://www.dropbox.com/s/unq20904s0dzg73/5.png?raw=1',
-          caption: '5', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/unq20904s0dzg73/5.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/e4itn1s2zl1yg14/6.png?raw=1',
           src: 'https://www.dropbox.com/s/e4itn1s2zl1yg14/6.png?raw=1',
-          caption: '6', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/e4itn1s2zl1yg14/6.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ctr600v8slktiev/7.png?raw=1',
           src: 'https://www.dropbox.com/s/ctr600v8slktiev/7.png?raw=1',
-          caption: '7', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ctr600v8slktiev/7.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/jdkbammmg0xmy7j/8.png?raw=1',
           src: 'https://www.dropbox.com/s/jdkbammmg0xmy7j/8.png?raw=1',
-          caption: '8', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/jdkbammmg0xmy7j/8.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/lkid74t7jbcvvvp/9.png?raw=1',
           src: 'https://www.dropbox.com/s/lkid74t7jbcvvvp/9.png?raw=1',
-          caption: '9', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/lkid74t7jbcvvvp/9.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/aompxdevyjjpj2q/10.png?raw=1',
           src: 'https://www.dropbox.com/s/aompxdevyjjpj2q/10.png?raw=1',
-          caption: '10', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/aompxdevyjjpj2q/10.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/p5r0ca20gk9xocm/11.png?raw=1',
           src: 'https://www.dropbox.com/s/p5r0ca20gk9xocm/11.png?raw=1',
-          caption: '11', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/p5r0ca20gk9xocm/11.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/xdhmnsv1fii61yw/12.png?raw=1',
           src: 'https://www.dropbox.com/s/xdhmnsv1fii61yw/12.png?raw=1',
-          caption: '12', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/xdhmnsv1fii61yw/12.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/zsmcce0mgd3rq7g/13.png?raw=1',
           src: 'https://www.dropbox.com/s/zsmcce0mgd3rq7g/13.png?raw=1',
-          caption: '13', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/zsmcce0mgd3rq7g/13.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/k9mpsn20efegoey/14.png?raw=1',
           src: 'https://www.dropbox.com/s/k9mpsn20efegoey/14.png?raw=1',
-          caption: '14', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/k9mpsn20efegoey/14.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/kwp56n16vj7ukhf/15.png?raw=1',
           src: 'https://www.dropbox.com/s/kwp56n16vj7ukhf/15.png?raw=1',
-          caption: '15', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/kwp56n16vj7ukhf/15.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/f40ahihgmyjktz9/16.png?raw=1',
           src: 'https://www.dropbox.com/s/f40ahihgmyjktz9/16.png?raw=1',
-          caption: '16', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/f40ahihgmyjktz9/16.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/phy2gjy8vpc6oya/17.png?raw=1',
           src: 'https://www.dropbox.com/s/phy2gjy8vpc6oya/17.png?raw=1',
-          caption: '17', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/phy2gjy8vpc6oya/17.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/s3durznp0gpkj2w/18.png?raw=1',
           src: 'https://www.dropbox.com/s/s3durznp0gpkj2w/18.png?raw=1',
-          caption: '18', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/s3durznp0gpkj2w/18.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/vnns3hqy5bu29mi/19.png?raw=1',
           src: 'https://www.dropbox.com/s/vnns3hqy5bu29mi/19.png?raw=1',
-          caption: '19', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/vnns3hqy5bu29mi/19.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/rur6n1xxgffc4aw/20.png?raw=1',
           src: 'https://www.dropbox.com/s/rur6n1xxgffc4aw/20.png?raw=1',
-          caption: '20', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/rur6n1xxgffc4aw/20.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/cp8xyyc992lvxb5/21.png?raw=1',
           src: 'https://www.dropbox.com/s/cp8xyyc992lvxb5/21.png?raw=1',
-          caption: '21', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/cp8xyyc992lvxb5/21.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/vrx76h8v2rox9lx/22.png?raw=1',
           src: 'https://www.dropbox.com/s/vrx76h8v2rox9lx/22.png?raw=1',
-          caption: '22', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/vrx76h8v2rox9lx/22.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/s45h7e6of1iurz3/23.png?raw=1',
           src: 'https://www.dropbox.com/s/s45h7e6of1iurz3/23.png?raw=1',
-          caption: '23', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/s45h7e6of1iurz3/23.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/g28pj2xbn2i7nrp/24.png?raw=1',
           src: 'https://www.dropbox.com/s/g28pj2xbn2i7nrp/24.png?raw=1',
-          caption: '24', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/g28pj2xbn2i7nrp/24.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ywq0eji4m11sjas/25.png?raw=1',
           src: 'https://www.dropbox.com/s/ywq0eji4m11sjas/25.png?raw=1',
-          caption: '25', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ywq0eji4m11sjas/25.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/1pvcgwg0bnv3kzb/26.png?raw=1',
           src: 'https://www.dropbox.com/s/1pvcgwg0bnv3kzb/26.png?raw=1',
-          caption: '26', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/1pvcgwg0bnv3kzb/26.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/rps2fhhcfih5p82/27.png?raw=1',
           src: 'https://www.dropbox.com/s/rps2fhhcfih5p82/27.png?raw=1',
-          caption: '27', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/rps2fhhcfih5p82/27.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/3a5gsp0ldjjfrlg/28.png?raw=1',
           src: 'https://www.dropbox.com/s/3a5gsp0ldjjfrlg/28.png?raw=1',
-          caption: '28', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/3a5gsp0ldjjfrlg/28.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/gp18m127wapb1ry/29.png?raw=1',
           src: 'https://www.dropbox.com/s/gp18m127wapb1ry/29.png?raw=1',
-          caption: '29', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/gp18m127wapb1ry/29.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/12q4b0bxndkhlb4/30.png?raw=1',
           src: 'https://www.dropbox.com/s/12q4b0bxndkhlb4/30.png?raw=1',
-          caption: '30', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/12q4b0bxndkhlb4/30.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/2fotgbr6hxo4m3a/31.png?raw=1',
           src: 'https://www.dropbox.com/s/2fotgbr6hxo4m3a/31.png?raw=1',
-          caption: '31', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/2fotgbr6hxo4m3a/31.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/i1n8vzo4wao1j3m/32.png?raw=1',
           src: 'https://www.dropbox.com/s/i1n8vzo4wao1j3m/32.png?raw=1',
-          caption: '32', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/i1n8vzo4wao1j3m/32.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/vc2y4ge7uv7udlk/33.png?raw=1',
           src: 'https://www.dropbox.com/s/vc2y4ge7uv7udlk/33.png?raw=1',
-          caption: '33', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/vc2y4ge7uv7udlk/33.png?raw=1' // Optional for displaying responsive images
         },
 
@@ -1418,7 +1420,7 @@ export default {
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/uyjsg20ifxpb218/34.png?raw=1',
           src: 'https://www.dropbox.com/s/uyjsg20ifxpb218/34.png?raw=1',
-          caption: '34', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/uyjsg20ifxpb218/34.png?raw=1' // Optional for displaying responsive images
         },
 
@@ -1426,28 +1428,28 @@ export default {
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/mrk70wgrnnz0k5k/35.png?raw=1',
           src: 'https://www.dropbox.com/s/mrk70wgrnnz0k5k/35.png?raw=1',
-          caption: '35', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/mrk70wgrnnz0k5k/35.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/uixrhcvwpt8btib/36.png?raw=1',
           src: 'https://www.dropbox.com/s/uixrhcvwpt8btib/36.png?raw=1',
-          caption: '36', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/uixrhcvwpt8btib/36.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/ynf9zdl0oz2szy1/37.png?raw=1',
           src: 'https://www.dropbox.com/s/ynf9zdl0oz2szy1/37.png?raw=1',
-          caption: '37', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/ynf9zdl0oz2szy1/37.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/osykjdw1izrt451/38.png?raw=1',
           src: 'https://www.dropbox.com/s/osykjdw1izrt451/38.png?raw=1',
-          caption: '38', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/osykjdw1izrt451/38.png?raw=1' // Optional for displaying responsive images
         },
       ],
@@ -1456,48 +1458,48 @@ export default {
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/7x9h6brpqs3jsvl/1.png?raw=1',
           src: 'https://www.dropbox.com/s/7x9h6brpqs3jsvl/1.png?raw=1',
-          caption: '1', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/7x9h6brpqs3jsvl/1.png?raw=1' // Optional for displaying responsive images
         }, { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/u61mogoo1e49kvd/2.png?raw=1',
           src: 'https://www.dropbox.com/s/u61mogoo1e49kvd/2.png?raw=1',
-          caption: '2', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/u61mogoo1e49kvd/2.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/wm3hlm86bn38kaf/3.png?raw=1',
           src: 'https://www.dropbox.com/s/wm3hlm86bn38kaf/3.png?raw=1',
-          caption: '3', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/wm3hlm86bn38kaf/3.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/li2aiy3d0uk6a0x/4.png?raw=1',
           src: 'https://www.dropbox.com/s/li2aiy3d0uk6a0x/4.png?raw=1',
-          caption: '4', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/li2aiy3d0uk6a0x/4.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/d4utdl9q6h2u77u/5.png?raw=1',
           src: 'https://www.dropbox.com/s/d4utdl9q6h2u77u/5.png?raw=1',
-          caption: '5', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/d4utdl9q6h2u77u/5.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/8gb236awjchb7pu/6.png?raw=1',
           src: 'https://www.dropbox.com/s/8gb236awjchb7pu/6.png?raw=1',
-          caption: '6', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/8gb236awjchb7pu/6.png?raw=1' // Optional for displaying responsive images
         },
         { // For an image
           type: 'image', // Can be omitted for image
           thumb: 'https://www.dropbox.com/s/k14pos70vtlfvft/7.png?raw=1',
           src: 'https://www.dropbox.com/s/k14pos70vtlfvft/7.png?raw=1',
-          caption: '7', // Optional
+          caption: '', // Optional
           srcset: 'https://www.dropbox.com/s/k14pos70vtlfvft/7.png?raw=1' // Optional for displaying responsive images
         },
       ],
@@ -1508,6 +1510,27 @@ export default {
   },
 
   computed: {
+    profilePhotoSize() {
+      let size = 0
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          size = 150
+          break;
+        case 'sm':
+          size = 250
+          break;
+        case 'md':
+          size = 250
+          break;
+        case 'lg':
+          size = 250
+          break;
+        case 'xl':
+          size = 250;
+      }
+      return size;
+    },
+
     size() {
       let size = 0
       switch (this.$vuetify.breakpoint.name) {
@@ -1644,6 +1667,28 @@ export default {
     this.calculateSectionOffsets();
     this.whatSection();
 
+    switch (this.$vuetify.breakpoint.name) {
+      case 'xs':
+        this.media[0].width = window.innerWidth * 0.9;
+        this.media[0].height = (window.innerWidth * 0.9) * 0.75;
+        break;
+      case 'sm':
+        this.media[0].width = window.innerWidth * 0.9;
+        this.media[0].height = (window.innerWidth * 0.9) * 0.75;
+        break;
+      case 'md':
+        this.media[0].width = window.innerWidth * 0.7;
+        this.media[0].height = (window.innerWidth * 0.7) * 0.75;
+        break;
+      case 'lg':
+        this.media[0].width = window.innerWidth * 0.7;
+        this.media[0].height = (window.innerWidth * 0.7) * 0.75;
+        break;
+      case 'xl':
+        this.media[0].width = window.innerWidth * 0.6;
+        this.media[0].height = (window.innerWidth * 0.6) * 0.75;
+    }
+
     if (JSON.parse(localStorage.getItem("activeSection")) == null) {
       localStorage.setItem("activeSection", 0);
       this.activeSection = JSON.parse(localStorage.getItem('activeSection'));
@@ -1655,6 +1700,32 @@ export default {
   },
 
   updated() {
+    window.addEventListener('resize', function(event) {
+      this.actualWidth = event.srcElement.innerWidth;
+      // this.media[0].width = this.actualWidth;
+    });
+
+    switch (this.$vuetify.breakpoint.name) {
+      case 'xs':
+        this.media[0].width = window.innerWidth * 0.9;
+        this.media[0].height = (window.innerWidth * 0.9) * 0.75;
+        break;
+      case 'sm':
+        this.media[0].width = window.innerWidth * 0.9;
+        this.media[0].height = (window.innerWidth * 0.9) * 0.75;
+        break;
+      case 'md':
+        this.media[0].width = window.innerWidth * 0.7;
+        this.media[0].height = (window.innerWidth * 0.7) * 0.75;
+        break;
+      case 'lg':
+        this.media[0].width = window.innerWidth * 0.7;
+        this.media[0].height = (window.innerWidth * 0.7) * 0.75;
+        break;
+      case 'xl':
+        this.media[0].width = window.innerWidth * 0.6;
+        this.media[0].height = (window.innerWidth * 0.6) * 0.75;
+    }
     // if (this.activeSection == null) {
     //   localStorage.setItem("activeSection", 0);
     // } else {
