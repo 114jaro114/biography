@@ -3,8 +3,8 @@
 }
 
 .theme--light ::-webkit-scrollbar-track {
-  background: #fff;
-  border-left: 1px solid #fff;
+  background: transparent;
+  border-left: 1px solid transparent;
 }
 
 .theme--light ::-webkit-scrollbar-thumb {
@@ -22,8 +22,8 @@
 }
 
 .theme--dark ::-webkit-scrollbar-track {
-  background: #1e1e1e;
-  border-left: 1px solid #1e1e1e;
+  background: transparent; //#1e1e1e
+  border-left: 1px solid transparent; //#1e1e1e
 }
 
 .theme--dark ::-webkit-scrollbar-thumb {

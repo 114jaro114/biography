@@ -23,9 +23,23 @@
         <!-- <v-divider class="mt-0" /> -->
         <v-col cols="10" sm="10" md="6" lg="6" class="p-0">
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field v-model="name" :rules="nameRules" :counter="20" :label="$t('section6.form.name')" tabindex="1" filled clearable required></v-text-field>
-            <v-text-field v-model="email" :rules="emailRules" :label="$t('section6.form.email')" tabindex="1" filled clearable required></v-text-field>
-            <v-textarea v-model="message" :rules="messageRules" :counter="1000" :label="$t('section6.form.msg')" tabindex="1" filled clearable auto-grow></v-textarea>
+            <v-text-field v-model="name" :rules="nameRules" :counter="20" :label="$t('section6.form.name')" tabindex="1" filled clearable required>
+              <template #message="{ message }">
+                {{ $t(message) }}
+              </template>
+            </v-text-field>
+
+            <v-text-field v-model="email" :rules="emailRules" :label="$t('section6.form.email')" tabindex="1" filled clearable required>
+              <template #message="{ message }">
+                {{ $t(message) }}
+              </template>
+            </v-text-field>
+
+            <v-textarea v-model="message" :rules="messageRules" :counter="1000" :label="$t('section6.form.msg')" tabindex="1" filled clearable no-resize style="overflow:hidden">
+              <template #message="{ message }">
+                {{ $t(message) }}
+              </template>
+            </v-textarea>
 
             <div class="">
               <v-btn :loading="loading" :disabled="!valid || (!name || !email || !message)" color="primary" class="ma-1" @click="showDialog" rounded>
@@ -92,18 +106,18 @@ export default {
       valid: false,
       name: '',
       nameRules: [
-        v => !!v || this.$t('section6.form.validate.name.n1'),
-        v => (v && v.length <= 10) || this.$t('section6.form.validate.name.n2'),
+        v => !!v || 'section6.form.validate.name.n1',
+        v => (v && v.length <= 20) || 'section6.form.validate.name.n2',
       ],
       message: '',
       messageRules: [
-        v => !!v || this.$t('section6.form.validate.msg.n1'),
-        v => (v && v.length <= 1000) || this.$t('section6.form.validate.msg.n2'),
+        v => !!v || 'section6.form.validate.msg.n1',
+        v => (v && v.length <= 1000) || 'section6.form.validate.msg.n2',
       ],
       email: '',
       emailRules: [
-        v => !!v || this.$t('section6.form.validate.email.n1'),
-        v => /.+@.+\..+/.test(v) || this.$t('section6.form.validate.email.n2'),
+        v => !!v || 'section6.form.validate.email.n1',
+        v => /.+@.+\..+/.test(v) || 'section6.form.validate.email.n2',
       ],
 
       loading: false,
@@ -111,6 +125,11 @@ export default {
       iconLarge: false,
       dialog: false,
     }
+  },
+
+  updated() {
+    console.log("update");
+    console.log(this.$i18n.locale);
   },
 
   computed: {
@@ -202,34 +221,78 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .theme--light.part1 {
-  background: #f5f5f5;
+    background: #f5f5f5;
 }
 
 .theme--dark.footer {
-  background-color: #1e1e1e;
+    background-color: #1e1e1e;
 }
 
 .part1 {
-  width: 100vw;
-  height: calc(100vh - 64px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100vw;
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .container-footer2 {
-  position: absolute;
-  width: 100vw;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+}
+
+.theme--light ::-webkit-scrollbar {
+    width: 15px;
+}
+
+.theme--light ::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: 1px solid transparent;
+}
+
+.theme--light ::-webkit-scrollbar-thumb {
+    background: #fff;
+    border: solid 2px #fff;
+    border-radius: 7px;
+}
+
+.theme--light ::-webkit-scrollbar-thumb:hover {
+    background: #d9d9d9;
+    border: solid 2px #d9d9d9;
+}
+
+.theme--dark ::-webkit-scrollbar {
+    width: 15px;
+}
+
+.theme--dark ::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: 1px solid transparent;
+}
+
+.theme--dark ::-webkit-scrollbar-thumb {
+    background: #1e1e1e;
+    border: solid 2px #1e1e1e;
+    border-radius: 7px;
+}
+
+.theme--dark ::-webkit-scrollbar-thumb:hover {
+    background: #272727;
+    border: solid 2px #272727;
+}
+
+::v-deep textarea {
+    margin-right: 10px !important;
 }
 </style>
