@@ -120,7 +120,7 @@ const messages = {
           },
           email: {
             n1: 'E-mail je povinný',
-            n2: 'E-mail musí mať validný tvar',
+            n2: 'E-mail musí mať platný tvar',
           },
           msg: {
             n1: 'Správa je povinná',
@@ -153,7 +153,6 @@ const messages = {
         },
       },
     },
-
   },
 
   en: {
