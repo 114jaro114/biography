@@ -10,8 +10,9 @@
           <transition name="slide-fade-lr">
             <v-col cols="12" lg="8" md="8" class="order-lg-1 order-md-1 order-2 px-0 px-lg-3 px-md-3 px-sm-3" v-if="animSection0">
               <v-row no-gutters class="justify-lg-start justify-md-start justify-sm-start justify-center">
-                <span class="text-lg-h3 text-md-h3 text-h5 font-wight-bold text-uppercase ma-2">
-                  <vue-typer :text='["Web developer"]' :repeat='Infinity' :shuffle='false' initial-action='typing' :pre-type-delay='1000' :type-delay='100' :pre-erase-delay='5000' :erase-delay='100' erase-style='backspace' :erase-on-complete='true'
+                <span class="text-lg-h3 text-md-h3 text-h5 font-weight-bold text-uppercase ma-2">
+                  <!-- Web developer -->
+                  <vue-typer class="color-typer" :text='["Web developer"]' :repeat='Infinity' :shuffle='false' initial-action='typing' :pre-type-delay='1000' :type-delay='100' :pre-erase-delay='5000' :erase-delay='100' erase-style='backspace' :erase-on-complete='true'
                     caret-animation='blink'></vue-typer>
                 </span>
               </v-row>
@@ -1963,5 +1964,19 @@ export default {
 
 .v-sheet.v-card {
     border-radius: 0;
+}
+
+::v-deep .typed {
+    color: #1976d2 !important;
+}
+
+::v-deep .custom.caret {
+    width: 3px;
+    margin-left: 3px !important;
+    background-color: #1976d2 !important;
+}
+
+.color-typer {
+    color: grey !important;
 }
 </style>
