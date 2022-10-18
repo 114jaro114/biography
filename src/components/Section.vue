@@ -690,7 +690,7 @@
                             </v-img>
                           </v-card>
                         </v-col>
-                        <LightBox ref="lightbox" :media="media" :show-caption="true" :show-light-box="false" />
+                        <LightBox ref="lightbox" :media="media" :show-caption="true" :show-light-box="false" closable/>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -733,7 +733,7 @@
                       <v-row>
                         <v-col v-for="(image, index) in media2" :key="'media2' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
-                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
+                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery2(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
                                   <v-progress-circular indeterminate color="primary"></v-progress-circular>
@@ -742,7 +742,7 @@
                             </v-img>
                           </v-card>
                         </v-col>
-                        <LightBox ref="lightbox" :media="media2" :show-caption="true" :show-light-box="false" />
+                        <LightBox ref="lightbox2" :media="media2" :show-caption="true" :show-light-box="false" closable/>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -789,7 +789,7 @@
                       <v-row>
                         <v-col v-for="(image, index) in media3" :key="'media3' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
-                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
+                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery3(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
                                   <v-progress-circular indeterminate color="primary"></v-progress-circular>
@@ -798,7 +798,7 @@
                             </v-img>
                           </v-card>
                         </v-col>
-                        <LightBox ref="lightbox" :media="media3" :show-caption="true" :show-light-box="false" />
+                        <LightBox ref="lightbox3" :media="media3" :show-caption="true" :show-light-box="false" closable/>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -840,7 +840,7 @@
                       <v-row>
                         <v-col v-for="(image, index) in media4" :key="'media4' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
-                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
+                            <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery4(index)">
                               <template v-slot:placeholder>
                                 <v-row class="fill-height ma-0" align="center" justify="center">
                                   <v-progress-circular indeterminate color="primary"></v-progress-circular>
@@ -849,7 +849,7 @@
                             </v-img>
                           </v-card>
                         </v-col>
-                        <LightBox ref="lightbox" :media="media4" :show-caption="true" :show-light-box="false" />
+                        <LightBox ref="lightbox4" :media="media4" :show-caption="true" :show-light-box="false" closable/>
                       </v-row>
                     </v-container>
                   </v-card-text>
@@ -1604,7 +1604,6 @@ export default {
     },
 
     activeAnimation() {
-      console.log("here");
       if (this.activeAnimation == 'section0') {
         this.animTown = false;
         this.animSection0 = false;
@@ -1643,7 +1642,6 @@ export default {
     },
 
     activeSection() {
-      console.log(this.activeSection);
       localStorage.setItem('activeSection', this.activeSection);
 
       let section = JSON.parse(localStorage.getItem('activeSection'));
@@ -1700,10 +1698,10 @@ export default {
   },
 
   updated() {
-    window.addEventListener('resize', function(event) {
-      this.actualWidth = event.srcElement.innerWidth;
-      // this.media[0].width = this.actualWidth;
-    });
+    // window.addEventListener('resize', function(event) {
+    //   this.actualWidth = event.srcElement.innerWidth;
+    //   // this.media[0].width = this.actualWidth;
+    // });
 
     switch (this.$vuetify.breakpoint.name) {
       case 'xs':
@@ -1753,6 +1751,18 @@ export default {
     //function for opening gallery of portfolio
     openGallery(index) {
       this.$refs.lightbox.showImage(index)
+    },
+
+    openGallery2(index) {
+      this.$refs.lightbox2.showImage(index)
+    },
+
+    openGallery3(index) {
+      this.$refs.lightbox3.showImage(index)
+    },
+
+    openGallery4(index) {
+      this.$refs.lightbox4.showImage(index)
     },
 
     whatSection() {
