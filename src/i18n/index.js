@@ -120,7 +120,7 @@ const messages = {
           },
           email: {
             n1: 'E-mail je povinný',
-            n2: 'E-mail musí mať valídny tvar',
+            n2: 'E-mail musí mať validný tvar',
           },
           msg: {
             n1: 'Správa je povinná',
@@ -143,7 +143,7 @@ const messages = {
       },
       dialog: {
         title: 'Je zadaný email správny?',
-        t1: 'Važený',
+        t1: 'Vážený',
         t2: 'prosím Vás, aby Ste si skontrolovali správnosť emailovej adresy',
         t3: 'zadanej vo formulári. Ak je zadaná emailová adresa správna, potvrďte to kliknutím na tlačidlo "Potvrdiť". Ak zadaná emailová adresa nie je správna, prosím o úpravu kliknutím na tlačidlo "Upraviť"".',
         t4: 'V prípade zadania nesprávnej emailovej adresy nebude možné odpovedať na Vašu správu!',
