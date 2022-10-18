@@ -274,8 +274,8 @@ const messages = {
             n2: 'E-mail must have a valid form',
           },
           msg: {
-            n1: 'Report is mandatory',
-            n2: 'The message can contain a maximum of 1000 characters',
+            n1: 'Message is mandatory',
+            n2: 'Message can contain a maximum of 1000 characters',
           }
         }
       },
