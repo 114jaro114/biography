@@ -10,7 +10,10 @@
           <transition name="slide-fade-lr">
             <v-col cols="12" lg="8" md="8" class="order-lg-1 order-md-1 order-2 px-0 px-lg-3 px-md-3 px-sm-3" v-if="animSection0">
               <v-row no-gutters class="justify-lg-start justify-md-start justify-sm-start justify-center">
-                <span class="text-lg-h3 text-md-h3 text-h5 font-wight-bold text-uppercase ma-2">Web developer</span>
+                <span class="text-lg-h3 text-md-h3 text-h5 font-wight-bold text-uppercase ma-2">
+                  <vue-typer :text='["Web developer"]' :repeat='Infinity' :shuffle='false' initial-action='typing' :pre-type-delay='1000' :type-delay='100' :pre-erase-delay='5000' :erase-delay='100' erase-style='backspace' :erase-on-complete='true'
+                    caret-animation='blink'></vue-typer>
+                </span>
               </v-row>
 
               <v-row no-gutters class="pt-3 pt-lg-7 pt-md-7 text-uppercase justify-lg-start justify-md-start justify-sm-start justify-center">
@@ -365,62 +368,62 @@
               <div class="row justify-center px-3">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-controller
                         </v-icon>
                       </v-card-subtitle>
 
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.first.number1') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-headphones
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.first.number2') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-theater
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.first.number3') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
@@ -432,61 +435,61 @@
               <div class="row justify-center px-3">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-soccer
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.second.number1') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-dumbbell
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.second.number2') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-skate
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.second.number3') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
@@ -498,61 +501,61 @@
               <div class="row justify-center pt-3 pt-md-0 pt-lg-0 px-3">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-fish
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.third.number1') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-swim
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.third.number2') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
                         <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-bike
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.third.number3') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
@@ -564,61 +567,61 @@
               <div class="row justify-center pt-3 pt-md-0 pt-lg-0 px-3">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-chef-hat
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.fourth.number1') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-shovel
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.fourth.number2') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
               </div>
 
-              <div class="row justify-center pt-3 px-3">
+              <div class="row justify-center pt-3 px-3 mt-4">
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card color="primary" class="w-100 borderCards" outlined>
+                    <v-card class="w-100 borderCards card_images" rounded elevation="0">
                       <v-card-subtitle class="p-5">
-                        <v-icon :size="size - 75" dark>
+                        <v-icon class="icon-color" :size="size - 75" dark>
                           mdi-forest
                         </v-icon>
                       </v-card-subtitle>
-                      <v-fade-transition>
+                      <v-slide-y-transition>
                         <v-overlay v-if="hover" absolute color="primary">
                           <v-btn text>
                             {{ $t('section4.fourth.number3') }}
                           </v-btn>
                         </v-overlay>
-                      </v-fade-transition>
+                      </v-slide-y-transition>
                     </v-card>
                   </template>
                 </v-hover>
@@ -652,14 +655,14 @@
                         </v-card>
                       </template>
                     </v-img>
-                    <v-fade-transition>
+                    <v-slide-y-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog1 = true">
                           <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
-                    </v-fade-transition>
+                    </v-slide-y-transition>
                   </v-card>
                 </template>
               </v-hover>
@@ -704,14 +707,14 @@
                         </v-card>
                       </template>
                     </v-img>
-                    <v-fade-transition>
+                    <v-slide-y-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog2 = true">
                             <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
-                    </v-fade-transition>
+                    </v-slide-y-transition>
                   </v-card>
                 </template>
               </v-hover>
@@ -760,14 +763,14 @@
                         </v-card>
                       </template>
                     </v-img>
-                    <v-fade-transition>
+                    <v-slide-y-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog3 = true">
                             <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
-                    </v-fade-transition>
+                    </v-slide-y-transition>
                   </v-card>
                 </template>
               </v-hover>
@@ -811,14 +814,14 @@
                         </v-card>
                       </template>
                     </v-img>
-                    <v-fade-transition>
+                    <v-slide-y-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog4 = true">
                             <span>{{ $t('section5.text') }}</span>
                           <v-icon class="arrow">mdi-arrow-right</v-icon>
                         </v-btn>
                       </v-overlay>
-                    </v-fade-transition>
+                    </v-slide-y-transition>
                   </v-card>
                 </template>
               </v-hover>
@@ -867,6 +870,9 @@
 <script>
 import LightBox from 'vue-it-bigger'
 import('vue-it-bigger/dist/vue-it-bigger.min.css') // when using webpack
+import {
+  VueTyper
+} from 'vue-typer'
 
 const gradients = [
   ['#ffffff', '#1976d2']
@@ -876,7 +882,8 @@ import Footer from "../components/Footer.vue";
 export default {
   components: {
     LightBox,
-    Footer
+    Footer,
+    'vue-typer': VueTyper
   },
   props: {
     nosfh: {
