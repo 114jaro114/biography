@@ -19,7 +19,7 @@
 
               <v-row no-gutters class="pt-3 pt-lg-7 pt-md-7 text-uppercase justify-lg-start justify-md-start justify-sm-start justify-center">
                 <v-chip class="ma-2">
-                  <span>Javascript (Vue.js)</span>
+                  <span>Javascript (Vue.js | React)</span>
                 </v-chip>
 
                 <v-chip class="ma-2">
@@ -31,7 +31,7 @@
                 </v-chip>
 
                 <v-chip class="ma-2">
-                  CSS3 (Vuetify & Bootstrap)
+                  CSS3 (Vuetify | Bootstrap)
                 </v-chip>
 
                 <v-chip class="ma-2">
@@ -247,6 +247,12 @@
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Javascript (Vue.js)</span>
+                </div>
+              </v-progress-linear>
+
+              <v-progress-linear class="mt-3" color="primary" buffer-value="50" value="40" height="35" rounded stream>
+                <div class="d-flex justify-start w-100 p-3">
+                  <span class="text-lg-subtitle-2 text-caption text-white">Javascript (React)</span>
                 </div>
               </v-progress-linear>
 

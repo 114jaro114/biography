@@ -34,6 +34,11 @@ export default {
       activeAnimation: null,
       sp: [],
       poh: null,
+      goToOptions: {
+        duration: 2500,
+        offset: 0,
+        easing: 'easeInOutCubic',
+      },
     }
   },
 
@@ -94,7 +99,7 @@ export default {
 
     toTop() {
       this.gtt = true;
-      this.$vuetify.goTo(0);
+      this.$vuetify.goTo(0, this.goToOptions);
       localStorage.setItem('activeSection', 0);
     },
   }
