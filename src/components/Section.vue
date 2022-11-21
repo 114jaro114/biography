@@ -246,19 +246,19 @@
 
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Javascript (Vue.js)</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">Javascript</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="50" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-3" color="primary" buffer-value="85" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">Javascript (React)</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">Vue.js</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="70" value="60" height="35" rounded stream>
+              <v-progress-linear class="mt-3" color="primary" buffer-value="40" value="30" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
-                  <span class="text-lg-subtitle-2 text-caption text-white">PHP (Laravel)</span>
+                  <span class="text-lg-subtitle-2 text-caption text-white">React</span>
                 </div>
               </v-progress-linear>
 
@@ -268,19 +268,25 @@
                 </div>
               </v-progress-linear>
 
+              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="60" height="35" rounded stream>
+                <div class="d-flex justify-start w-100 p-3">
+                  <span class="text-lg-subtitle-2 text-caption text-white">PHP (Laravel)</span>
+                </div>
+              </v-progress-linear>
+
               <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">C++</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="35" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Java</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="30" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">C</span>
                 </div>
@@ -646,7 +652,7 @@
 
       <v-container class="w-100 p-0 m-0">
         <v-row no-gutters>
-          <transition name="slide-fade-lr">
+          <transition name="slide-fade-lr" rouned>
             <v-col class="px-0 px-lg-16 px-md-16 px-sm-16 order-lg-1 order-md-1 order-1" lg="6" md="6" cols="12" v-if="animSection4">
               <!-- py-0 py-lg-8 py-md-8 -->
               <!-- <v-img height="250" lazy-src="https://www.dropbox.com/s/zj7pehfghjrb0na/04TB-SPIDERSILK-superJumbo.jpg?raw=1" src="https://www.dropbox.com/s/zj7pehfghjrb0na/04TB-SPIDERSILK-superJumbo.jpg?raw=1" @load="onImgLoad" hidden></v-img> -->
@@ -654,7 +660,7 @@
 
               <v-hover>
                 <template v-slot:default="{ hover }">
-                  <v-card dark class="w-100 mx-auto" elevation="0" tile>
+                  <v-card class="w-100 mx-auto" elevation="0" tile>
                     <v-img style="cursor: pointer" :lazy-src="require('../assets/img/socialNetwork/1.png')" :src="require('../assets/img/socialNetwork/1.png')" height="250">
                       <template v-slot:placeholder>
                         <v-card dark class="w-100 d-flex text-center align-center justify-center" height="250" elevation="0" tile>
@@ -662,6 +668,7 @@
                         </v-card>
                       </template>
                     </v-img>
+
                     <v-slide-y-transition>
                       <v-overlay v-if="hover" absolute color="primary">
                         <v-btn class="anim" text @click="dialog1 = true">
