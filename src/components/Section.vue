@@ -73,7 +73,7 @@
                 </v-avatar>
               </v-row>
               <v-row no-gutters class="pt-3" justify="center">
-                <span class="font-wight-thin text-h5">Jaroslav Balent</span>
+                <span class="font-wight-thin text-h5">Ing. Jaroslav Balent</span>
               </v-row>
             </v-col>
           </transition>
