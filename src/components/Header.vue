@@ -66,12 +66,12 @@
       <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="lang">
-            <v-btn color="primary" text rounded v-bind="attrs" v-on="on">
-              <div v-if="selectedLang == '1'">
+            <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
+              <div class="menu-en" v-if="selectedLang == '1'">
                 <CountryFlag :country="'gb'" size='normal' />
                 <span class="position-relative ml-2" style="top:-5px">en</span>
               </div>
-              <div v-else>
+              <div class="menu-sk" v-else>
                 <CountryFlag :country="'sk'" size='normal' />
                 <span class="position-relative ml-2" style="top:-5px">sk</span>
               </div>
@@ -526,5 +526,11 @@ export default {
 
 ::v-deep .toolbar .btn-lang .v-skeleton-loader__chip {
   width: 91px;
+}
+
+.menu-sk,
+.menu-en {
+  position: absolute;
+  bottom: -16px;
 }
 </style>
