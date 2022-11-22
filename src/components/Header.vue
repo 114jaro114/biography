@@ -1,36 +1,54 @@
 <template>
 <div>
   <v-app-bar class="toolbar" id="toolbar" app elevation="0" :elevate-on-scroll="true">
-    <!-- <v-card class="rounded-lg" elevation="0" dense>
-      <v-card-text class="p-2 pt-1 pb-1">
-        <v-avatar size="36" class="pt-1">
-          <v-img :lazy-src="require('../assets/img/profile_photo.jpg')" :src="require('../assets/img/profile_photo.jpg')" />
-        </v-avatar>
-        <span class="ml-2 pt-1 font-weight-bold primary--text">Jaroslav Balent</span>
-      </v-card-text>
-    </v-card> -->
     <v-row class="mr-0 mt-0 mb-0 ml-0 hidden-sm-and-down justify-end">
-      <v-btn v-if="pos == 0" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
+      <div class="hidden-sm-and-down" v-if="$root.overlay">
+        <div class="d-flex w-100" v-if="selectedLang == 0">
+          <v-skeleton-loader class="mr-1 btn-0-sk" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-1-sk" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-2-sk" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-3-sk" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-4-sk" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="btn-5-sk" type="chip" min-height="36"></v-skeleton-loader>
+        </div>
 
-      <v-btn v-if="pos == 1" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
+        <div v-else>
+          <v-skeleton-loader class="mr-1 btn-0-en" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-1-en" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-2-en" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-3-en" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="mr-1 btn-4-en" type="chip" min-height="36"></v-skeleton-loader>
+          <v-skeleton-loader class="btn-5-en" type="chip" min-height="36"></v-skeleton-loader>
+        </div>
+      </div>
 
-      <v-btn v-if="pos == 2" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
+      <div v-else>
+        <v-btn v-if="pos == 0" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(0)">{{ $t('header.pos1') }}</v-btn>
 
-      <v-btn v-if="pos == 3" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
+        <v-btn v-if="pos == 1" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(1)">{{ $t('header.pos2') }}</v-btn>
 
-      <v-btn v-if="pos == 4" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
+        <v-btn v-if="pos == 2" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(2)">{{ $t('header.pos3') }}</v-btn>
 
-      <v-btn v-if="pos == 5" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
-      <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
+        <v-btn v-if="pos == 3" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(3)">{{ $t('header.pos4') }}</v-btn>
+
+        <v-btn v-if="pos == 4" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(4)">{{ $t('header.pos5') }}</v-btn>
+
+        <v-btn v-if="pos == 5" rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
+        <v-btn v-else text rounded class="mr-1" color="primary" elevation="0" @click="scrollToSection(5)">{{ $t('header.pos6') }}</v-btn>
+      </div>
 
       <v-spacer />
 
-      <v-tooltip bottom>
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-tooltip bottom v-else>
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on" text rounded class="mr-1" color="primary" @click="toggle_dark_mode">
             <v-icon color="orange" v-if="!$vuetify.theme.dark">mdi-lightbulb-on-outline</v-icon>
@@ -41,7 +59,11 @@
         <span v-else>{{ $t('header.theme.t2') }}</span>
       </v-tooltip>
 
-      <v-menu offset-y nudge-bottom="5">
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="btn-lang" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="lang">
             <v-btn color="primary" text rounded v-bind="attrs" v-on="on">
@@ -69,19 +91,6 @@
           </v-list-item-group>
         </v-list>
       </v-menu>
-
-
-      <!-- <v-select class="langselect" v-model="select" :items="countries" item-text="name" filled :menu-props="{ top: false, offsetY: true }">
-        <template class="select_language" slot="selection" slot-scope="slotProps">
-          <CountryFlag :country='slotProps.item.flag' size='normal' />
-          <span class="pt-3 ml-2">{{slotProps.item.name}}</span>
-        </template>
-        <template class="select_language" v-slot:item="slotProps">
-          <CountryFlag class="mr-2" :country='slotProps.item.flag' size='normal' />
-          <span class="pt-3 ml-2">{{slotProps.item.name}}</span>
-        </template>
-        <span>Vybrať jayzk</span>
-      </v-select> -->
     </v-row>
 
     <v-row class="mr-0 mt-0 mb-0 ml-0 hidden-md-and-up justify-end">
@@ -311,7 +320,6 @@ export default {
       this.position = this.nos;
       this.pos = this.nos;
       this.setColorFirstSection();
-      // console.log(this.nos);
     },
 
     sp() {
@@ -381,10 +389,10 @@ export default {
 
     scrollToSection(id, force = false) {
       if (this.inMove && !force) return false;
-      this.pos = id;
       this.position = id;
       this.activeSection = id;
       this.inMove = true;
+      // this.pos = id;
 
       let ypos = 0;
       if (id == 0) {
@@ -414,10 +422,11 @@ export default {
       this.$emit('activeAnimationFromHeader', document.getElementsByTagName('section')[id].id);
 
       this.setColorFirstSection();
+      this.inMove = false;
 
-      setTimeout(() => {
-        this.inMove = false;
-      }, 400);
+      // setTimeout(() => {
+      //this.inMove = false;
+      // }, 400);
 
     },
   }
@@ -455,6 +464,67 @@ export default {
 }
 
 .lang .v-btn:not(.v-btn--round).v-size--default {
+  width: 91px;
+}
+
+::v-deep .v-skeleton-loader__chip {
+  border-radius: 28px;
+  height: 36px;
+}
+
+::v-deep .toolbar .btn-0-sk .v-skeleton-loader__chip {
+  width: 82.77px;
+}
+
+::v-deep .toolbar .btn-0-en .v-skeleton-loader__chip {
+  width: 111.94px;
+}
+
+::v-deep .toolbar .btn-1-sk .v-skeleton-loader__chip {
+  width: 117.89px;
+}
+
+::v-deep .toolbar .btn-1-en .v-skeleton-loader__chip {
+  width: 120.39px;
+}
+
+::v-deep .toolbar .btn-2-sk .v-skeleton-loader__chip {
+  width: 215.98px;
+}
+
+::v-deep .toolbar .btn-2-en .v-skeleton-loader__chip {
+  width: 221.28px;
+}
+
+::v-deep .toolbar .btn-3-sk .v-skeleton-loader__chip {
+  width: 92.11px;
+}
+
+::v-deep .toolbar .btn-3-en .v-skeleton-loader__chip {
+  width: 99.59px;
+}
+
+::v-deep .toolbar .btn-4-sk .v-skeleton-loader__chip {
+  width: 118.56px;
+}
+
+::v-deep .toolbar .btn-4-en .v-skeleton-loader__chip {
+  width: 118.56px;
+}
+
+::v-deep .toolbar .btn-5-sk .v-skeleton-loader__chip {
+  width: 104.34px;
+}
+
+::v-deep .toolbar .btn-5-en .v-skeleton-loader__chip {
+  width: 104.84px;
+}
+
+::v-deep .toolbar .btn-theme .v-skeleton-loader__chip {
+  width: 64px;
+}
+
+::v-deep .toolbar .btn-lang .v-skeleton-loader__chip {
   width: 91px;
 }
 </style>

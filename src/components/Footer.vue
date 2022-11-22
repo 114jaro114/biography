@@ -127,10 +127,7 @@ export default {
     }
   },
 
-  updated() {
-    console.log("update");
-    console.log(this.$i18n.locale);
-  },
+  updated() {},
 
   computed: {
     iconSize() {

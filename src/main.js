@@ -46,5 +46,16 @@ new Vue({
   router,
   vuetify,
   i18n,
+  data: {
+    overlay: true,
+  },
+
+  mounted() {
+    console.log("mounted")
+    setTimeout(() => {
+      this.$root.overlay = false;
+    }, 300);
+  },
+
   render: h => h(App),
 }).$mount('#app')

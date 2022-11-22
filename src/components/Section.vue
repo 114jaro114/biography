@@ -930,12 +930,12 @@ export default {
       showSection4: false,
       showSection5: false,
       animTown: false,
-      animSection0: true,
-      animSection1: true,
-      animSection2: true,
-      animSection3: true,
-      animSection4: true,
-      animSection5: true,
+      animSection0: false,
+      animSection1: false,
+      animSection2: false,
+      animSection3: false,
+      animSection4: false,
+      animSection5: false,
       schools: [{
           color: 'primary',
           year: '2020-2022',
@@ -1612,7 +1612,7 @@ export default {
       } else if (rpoh >= this.offsets[5]) {
         this.activeSection = 5;
       }
-
+      console.log(this.activeSection);
       this.$emit('toNumberFromSection', this.activeSection);
     },
 
@@ -1879,7 +1879,7 @@ export default {
     scrollToSection(id, force = false) {
       if (this.inMove && !force) return false;
 
-      this.activeSection = id;
+      // this.activeSection = id;
       this.inMove = true;
 
       if (id == 0) {
