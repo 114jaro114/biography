@@ -4,14 +4,13 @@
       <span class="menu-point" v-bind:class="{active: activeSection == index}" @click="scrollToSection(index)" v-for="(offset, index) in offsets" :key="index">
       </span>
     </div>
-    <section id="section0" class="fullpage pt-0">
+    <section id="section0" class="fullpage">
       <v-container class="d-flex flex-wrap w-100 p-0 m-0">
         <v-row class="justify-space-between" no-gutters>
           <transition name="slide-fade-lr">
             <v-col cols="12" lg="8" md="8" class="order-lg-1 order-md-1 order-2 px-0 px-lg-3 px-md-3 px-sm-3" v-if="animSection0">
               <v-row no-gutters class="justify-lg-start justify-md-start justify-sm-start justify-center">
                 <span class="text-lg-h3 text-md-h3 text-h5 font-weight-bold text-uppercase ma-2">
-                  <!-- Web developer -->
                   <vue-typer class="color-typer" :text='["Web developer"]' :repeat='Infinity' :shuffle='false' initial-action='typing' :pre-type-delay='1000' :type-delay='100' :pre-erase-delay='5000' :erase-delay='100' erase-style='backspace' :erase-on-complete='true'
                     caret-animation='blink'></vue-typer>
                 </span>
@@ -98,7 +97,7 @@
 
             <transition name="slide-fade-rl">
               <div class="py-4" v-if="animSection1">
-                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
+                <span :class="`font-weight-bold text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
                   {{ $t('section2.schools.first.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
@@ -124,7 +123,7 @@
             </template>
             <transition name="slide-fade-lr">
               <div class="py-4" v-if="animSection1">
-                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
+                <span :class="`font-weight-bold text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
                   {{ $t('section2.schools.second.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
@@ -150,7 +149,7 @@
             </template>
             <transition name="slide-fade-rl">
               <div class="py-4" v-if="animSection1">
-                <span :class="`font-weight-bold mb-4 text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
+                <span :class="`font-weight-bold text-lg-h4 text-md-h4 text-h6 ${schools[0].color}--text`">
                   {{ $t('section2.schools.third.type') }}
                 </span>
                 <div class="font-weight-bold text-lg-subtitle-2 text-md-subtitle-2 text-caption">
@@ -166,33 +165,9 @@
             </transition>
           </v-timeline-item>
         </v-timeline>
-        <!-- <v-timeline class="mt-3">
-          <v-timeline-item v-for="(school, i) in schools" :key="i" :color="school.color" small>
-            <template v-slot:opposite>
-              <transition name="slide-fade">
-                <span :class="`headline font-weight-bold text-lg-h4 text-md-h4 text-h6 ${school.color}--text`" v-text="school.year"></span>
-              </transition>
-            </template>
-            <transition name="slide-fader-l">
-              <div class="py-4" v-if="!animSection2">
-                <span :class="`font-weight-light mb-4 text-lg-h4 text-md-h4 text-h6 ${school.color}--text`">
-                  {{school.type}}
-                </span>
-                <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{school.name}}
-                </div>
-                <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{school.study_department}}
-                </div>
-                <div class="text-lg-subtitle-2 text-md-subtitle-2 text-caption">
-                  {{school.type_of_work}}
-                </div>
-              </div>
-            </transition>
-          </v-timeline-item>
-        </v-timeline> -->
       </v-container>
     </section>
+
     <section id="section2" class="fullpage">
       <transition name="slide-fade-tb">
         <div class="text-lg-h3 text-md-h3 text-h5 mb-3 mt-3" v-if="animSection2">{{ $t('section3.title') }}</div>
@@ -208,85 +183,85 @@
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="60" value="50" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="60" value="50" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">SQL</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="40" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Autodesk Inventor</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="40" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">AutoCAD</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="40" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="40" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Python</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">HTML</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="70" value="60" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="70" value="60" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">CSS</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Javascript</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="85" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="85" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Vue.js</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="40" value="30" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="40" value="30" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">React</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Jquery</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="60" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="60" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">PHP (Laravel)</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">C++</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="35" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="35" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Java</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="30" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="30" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">C</span>
                 </div>
@@ -303,14 +278,14 @@
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="100" height="70" rounded stream>
                 <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.second.skills2') }}</span>
                   <span class="text-lg-subtitle-2 text-caption text-white">A1</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="70" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="100" height="70" rounded stream>
                 <div class="d-flex text-center flex-column w-100 pr-12 pl-12">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.second.skills3') }}</span>
                   <span class="text-lg-subtitle-2 text-caption text-white">B</span>
@@ -327,37 +302,37 @@
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills2') }}</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="100" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="100" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills3') }}</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills4') }}</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills5') }}</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills6') }}</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-3" color="primary" buffer-value="0" value="80" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="80" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">{{ $t('section3.third.skills7') }}</span>
                 </div>
@@ -692,6 +667,13 @@
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0 ">
                       <v-row>
+                        <v-col cols="12">
+                          <v-card class="p-4 card-color-portfolio rounded-pill d-flex justify-content-center" flat>
+                            <a onclick="window.open('https://github.com/114jaro114/social-network', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                              https://github.com/114jaro114/social-network
+                            </a>
+                          </v-card>
+                        </v-col>
                         <v-col v-for="(image, index) in media" :key="'media' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery(index)">
@@ -744,6 +726,13 @@
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0 ">
                       <v-row>
+                        <v-col cols="12">
+                          <v-card class="p-4 card-color-portfolio rounded-pill d-flex justify-content-center" flat>
+                            <a onclick="window.open('https://github.com/114jaro114/bysta-reservation', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                              https://github.com/114jaro114/bysta-reservation
+                            </a>
+                          </v-card>
+                        </v-col>
                         <v-col v-for="(image, index) in media2" :key="'media2' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery2(index)">
@@ -800,6 +789,13 @@
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0">
                       <v-row>
+                        <v-col cols="12">
+                          <v-card class="p-4 card-color-portfolio rounded-pill d-flex justify-content-center" flat>
+                            <a onclick="window.open('https://github.com/114jaro114/openlab', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                              https://github.com/114jaro114/openlab
+                            </a>
+                          </v-card>
+                        </v-col>
                         <v-col v-for="(image, index) in media3" :key="'media3' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery3(index)">
@@ -851,6 +847,13 @@
                   <v-card-text class="d-flex pt-3 justify-center">
                     <v-container class="m-0">
                       <v-row>
+                        <v-col cols="12">
+                          <v-card class="p-4 card-color-portfolio rounded-pill d-flex justify-content-center" flat>
+                            <a onclick="window.open('https://github.com/114jaro114/parser', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                              https://github.com/114jaro114/parser
+                            </a>
+                            </v-card>
+                        </v-col>
                         <v-col v-for="(image, index) in media4" :key="'media4' + index" class="d-flex child-flex container_images" cols="12" lg="4" md="4" sm="6" style="overflow: hidden">
                           <v-card class="card_images" elevation="0" tile>
                             <v-img style="cursor: pointer" class="zoom" :lazy-src="image.thumb" :src="image.thumb" aspect-ratio="1.5" @click="openGallery4(index)">
@@ -1519,6 +1522,7 @@ export default {
 
       sectionPositionsValues: [],
       positionOfHeader: null,
+      sectionId: null
     }
   },
 
@@ -1588,9 +1592,10 @@ export default {
   },
 
   watch: {
-    // nosfh() {
-    //   this.activeSection = this.nosfh;
-    // },
+    nosfh() {
+      this.sectionId = this.nosfh;
+      console.log(this.nosfh);
+    },
 
     gtt() {
       this.scrollToSection(0);
@@ -1599,21 +1604,28 @@ export default {
 
     poh() {
       let rpoh = Math.round(this.poh)
+      console.log('watcherr');
+      console.log(rpoh);
+      console.log('------');
       if (rpoh >= this.offsets[0] && rpoh < this.offsets[1]) {
         this.activeSection = 0;
+        this.$emit('toNumberFromSection', 0);
       } else if (rpoh >= this.offsets[1] && rpoh < this.offsets[2]) {
         this.activeSection = 1;
+        this.$emit('toNumberFromSection', 1);
       } else if (rpoh >= this.offsets[2] && rpoh < this.offsets[3]) {
         this.activeSection = 2;
+        this.$emit('toNumberFromSection', 2);
       } else if (rpoh >= this.offsets[3] && rpoh < this.offsets[4]) {
         this.activeSection = 3;
+        this.$emit('toNumberFromSection', 3);
       } else if (rpoh >= this.offsets[4] && rpoh < this.offsets[5]) {
         this.activeSection = 4;
+        this.$emit('toNumberFromSection', 4);
       } else if (rpoh >= this.offsets[5]) {
         this.activeSection = 5;
+        this.$emit('toNumberFromSection', 5);
       }
-      console.log(this.activeSection);
-      this.$emit('toNumberFromSection', this.activeSection);
     },
 
     activeAnimation() {
@@ -1656,8 +1668,8 @@ export default {
 
     activeSection() {
       localStorage.setItem('activeSection', this.activeSection);
-
       let section = JSON.parse(localStorage.getItem('activeSection'));
+
       if (section == 0) {
         this.showSection0 = true;
       } else if (section == 1) {
@@ -1711,6 +1723,29 @@ export default {
   },
 
   updated() {
+    switch (this.$vuetify.breakpoint.name) {
+      case 'xs':
+        this.animSection0 = true;
+        this.animSection1 = true;
+        this.animSection2 = true;
+        this.animSection3 = true;
+        this.animSection4 = true;
+        break;
+      case 'sm':
+        this.animSection0 = true;
+        this.animSection1 = true;
+        this.animSection2 = true;
+        this.animSection3 = true;
+        this.animSection4 = true;
+        break;
+      case 'md':
+        console.log('md');
+        break;
+      case 'lg':
+        console.log('lg');
+        break;
+      case 'xl':
+    }
     // window.addEventListener('resize', function(event) {
     //   this.actualWidth = event.srcElement.innerWidth;
     //   // this.media[0].width = this.actualWidth;
@@ -2072,5 +2107,13 @@ export default {
 
 .color-typer {
     color: grey !important;
+}
+
+.theme--light .v-card .card-color-portfolio {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.theme--dark .v-card .card-color-portfolio {
+    background: rgba(255, 255, 255, 0.08);
 }
 </style>

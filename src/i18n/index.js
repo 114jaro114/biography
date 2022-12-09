@@ -108,7 +108,7 @@ const messages = {
       },
     },
     section6: {
-      title: 'Kontaktuj ma',
+      title: 'Kontakt',
       form: {
         name: 'Meno',
         email: 'E-mail',
@@ -259,7 +259,7 @@ const messages = {
       },
     },
     section6: {
-      title: 'Contact me',
+      title: 'Contact',
       form: {
         name: 'Name',
         email: 'E-mail',

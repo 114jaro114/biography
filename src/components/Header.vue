@@ -12,7 +12,7 @@
           <v-skeleton-loader class="btn-5-sk" type="chip" min-height="36"></v-skeleton-loader>
         </div>
 
-        <div v-else>
+        <div class="d-flex w-100" v-else>
           <v-skeleton-loader class="mr-1 btn-0-en" type="chip" min-height="36"></v-skeleton-loader>
           <v-skeleton-loader class="mr-1 btn-1-en" type="chip" min-height="36"></v-skeleton-loader>
           <v-skeleton-loader class="mr-1 btn-2-en" type="chip" min-height="36"></v-skeleton-loader>
@@ -267,7 +267,6 @@ export default {
       pos: 0,
       test: '',
       sectionPositions: [],
-      positionOfHeader: null,
 
       select: localStorage.getItem('language'),
       selectedLang: 0,
@@ -308,8 +307,7 @@ export default {
     // localStorage.setItem('language', this.select);\
     const scrollDemo = document.querySelector("#toolbar");
     window.addEventListener("scroll", () => {
-      this.positionOfHeader = window.scrollY + scrollDemo.getBoundingClientRect().top;
-      this.$emit('positionOfHeader', window.scrollY + scrollDemo.getBoundingClientRect().top);
+      this.$emit('positionOfHeader', Math.round(window.scrollY + scrollDemo.getBoundingClientRect().top));
     }, {
       passive: true
     });
@@ -317,6 +315,9 @@ export default {
 
   watch: {
     nos() {
+      // console.log('nos');
+      // console.log(this.nos);
+      // console.log('--------');
       this.position = this.nos;
       this.pos = this.nos;
       this.setColorFirstSection();
@@ -394,40 +395,36 @@ export default {
       this.inMove = true;
       // this.pos = id;
 
-      let ypos = 0;
-      if (id == 0) {
-        ypos = this.sectionPositions[0];
-      } else if (id == 1) {
-        ypos = this.sectionPositions[1];
-      } else if (id == 2) {
-        ypos = this.sectionPositions[2];
-      } else if (id == 3) {
-        ypos = this.sectionPositions[3];
-      } else if (id == 4) {
-        ypos = this.sectionPositions[4];
-      } else {
-        ypos = this.sectionPositions[5];
-      }
+      // let ypos = 0;
+      // if (id == 0) {
+      //   ypos = this.sectionPositions[0];
+      // } else if (id == 1) {
+      //   ypos = this.sectionPositions[1];
+      // } else if (id == 2) {
+      //   ypos = this.sectionPositions[2];
+      // } else if (id == 3) {
+      //   ypos = this.sectionPositions[3];
+      // } else if (id == 4) {
+      //   ypos = this.sectionPositions[4];
+      // } else {
+      //   ypos = this.sectionPositions[5];
+      // }
 
-      window.scrollTo({
-        top: ypos,
-        behavior: 'smooth'
-      });
+      // window.scrollTo({
+      //   top: ypos,
+      //   behavior: 'smooth'
+      // });
 
       // this.$emit('toSectionFromHeader', id);
 
-      // document.getElementsByTagName('section')[id].scrollIntoView({
-      //   behavior: 'smooth'
-      // });
+      document.getElementsByTagName('section')[id].scrollIntoView({
+        behavior: 'smooth'
+      });
+
       this.$emit('activeAnimationFromHeader', document.getElementsByTagName('section')[id].id);
 
       this.setColorFirstSection();
       this.inMove = false;
-
-      // setTimeout(() => {
-      //this.inMove = false;
-      // }, 400);
-
     },
   }
 }
