@@ -195,7 +195,7 @@ export default {
             this.dialog = false;
             this.$refs.form.reset();
             // reset form
-          }, function(error) {
+          }, function() {
             this.snackbar = true;
             this.snackbarText = this.$t('section6.snackbar.err');
             this.snackbarColor = 'error';
@@ -203,7 +203,6 @@ export default {
             this.loading = false;
             this.loadingConfirm = false;
             this.dialog = false;
-            console.log('FAILED...', error);
           });
       } else {
         this.loadingConfirm = false;

@@ -51,7 +51,6 @@ new Vue({
   },
 
   mounted() {
-    console.log("mounted")
     setTimeout(() => {
       this.$root.overlay = false;
     }, 300);

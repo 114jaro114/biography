@@ -1594,7 +1594,6 @@ export default {
   watch: {
     nosfh() {
       this.sectionId = this.nosfh;
-      console.log(this.nosfh);
     },
 
     gtt() {
@@ -1604,9 +1603,6 @@ export default {
 
     poh() {
       let rpoh = Math.round(this.poh)
-      console.log('watcherr');
-      console.log(rpoh);
-      console.log('------');
       if (rpoh >= this.offsets[0] && rpoh < this.offsets[1]) {
         this.activeSection = 0;
         this.$emit('toNumberFromSection', 0);
@@ -1716,6 +1712,14 @@ export default {
       localStorage.setItem("activeSection", 0);
       this.activeSection = JSON.parse(localStorage.getItem('activeSection'));
       this.$emit('toNumberFromSection', this.activeSection);
+      this.animTown = false;
+      this.animSection0 = false;
+      setTimeout(() => {
+        this.animSection0 = true;
+        setTimeout(() => {
+          this.animTown = true;
+        }, 1700);
+      }, 200);
     } else {
       this.activeSection = JSON.parse(localStorage.getItem('activeSection'));
       this.$emit('toNumberFromSection', this.activeSection);
@@ -1739,10 +1743,8 @@ export default {
         this.animSection4 = true;
         break;
       case 'md':
-        console.log('md');
         break;
       case 'lg':
-        console.log('lg');
         break;
       case 'xl':
     }

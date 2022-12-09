@@ -265,7 +265,6 @@ export default {
       switch1: false,
       position: null,
       pos: 0,
-      test: '',
       sectionPositions: [],
 
       select: localStorage.getItem('language'),
@@ -315,9 +314,6 @@ export default {
 
   watch: {
     nos() {
-      // console.log('nos');
-      // console.log(this.nos);
-      // console.log('--------');
       this.position = this.nos;
       this.pos = this.nos;
       this.setColorFirstSection();
@@ -359,14 +355,9 @@ export default {
       }
     },
 
-    handleBegin() {
-      this.test = 'test';
-      // console.log("begin");
-    },
+    handleBegin() {},
 
-    handleComplete() {
-      // console.log("complete");
-    },
+    handleComplete() {},
 
     toggle_dark_mode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
