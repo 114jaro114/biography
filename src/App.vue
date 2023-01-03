@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <v-app>
+    <let-it-snow v-bind="snowConf" :show="show"></let-it-snow>
     <!-- <router-view /> -->
     <Header :nos="nos" :sp="sp" @positionOfHeader="numberOfHeaderPosition" @activeAnimationFromHeader="nameOfAnimatedSection" />
     <!-- @toSectionFromHeader="numberOfSectionFromHeader" -->
@@ -39,10 +40,23 @@ export default {
         offset: 0,
         easing: 'easeInOutCubic',
       },
+
+      snowConf: {
+        windPower: 0.1,
+        speed: 0.5,
+        count: 10,
+        size: 5,
+        opacity: 0.8,
+        images: ['https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/snow.png']
+      },
+      show: false
     }
   },
 
   mounted() {
+    // start snow
+    this.show = true
+
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     document.body.scrollTop = 0; // For Safari
 

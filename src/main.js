@@ -19,14 +19,9 @@ Vue.use(Vue2TouchEvents, {
   namespace: 'test'
 })
 
-// import VueScrollProgress from "vue-scroll-progress";
-//
-// Vue.use(VueScrollProgress);
-//
-// import VueScrollProgressBar from '@guillaumebriday/vue-scroll-progress-bar'
-//
-// Vue.use(VueScrollProgressBar)
-
+// global registration of package
+import LetItSnow from 'vue-let-it-snow';
+Vue.component('LetItSnow', LetItSnow)
 // bootstrap-vue
 import {
   BootstrapVue,
