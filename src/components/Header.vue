@@ -44,8 +44,6 @@
 
       <v-spacer />
 
-      <a href="./Jaroslav_Balent_cv.pdf" target="_blank">cv</a>
-
       <div v-if="$root.overlay">
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
@@ -59,7 +57,7 @@
           </div>
         </template>
         <v-list class="cvlist" width="150px">
-          <v-btn class="w-100" style="text-decoration: none" color="primary" text href="./Jaroslav_Balent_cv.pdf" target="_blank">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" @click="showcv" text>
             <span>{{ $t('header.cv.t1') }}</span>
           </v-btn>
           <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_cv.pdf">
@@ -350,6 +348,10 @@ export default {
   },
 
   methods: {
+    showcv() {
+      window.open('./Jaroslav_Balent_cv.pdf', '_blank');
+    },
+
     downloadFile() {
       const me = this;
 
