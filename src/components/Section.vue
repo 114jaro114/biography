@@ -255,13 +255,13 @@
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="35" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="17" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">Java</span>
                 </div>
               </v-progress-linear>
 
-              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="30" height="35" rounded stream>
+              <v-progress-linear class="mt-2" color="primary" buffer-value="0" value="12" height="35" rounded stream>
                 <div class="d-flex justify-start w-100 p-3">
                   <span class="text-lg-subtitle-2 text-caption text-white">C</span>
                 </div>
