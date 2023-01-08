@@ -67,10 +67,10 @@
         </template>
 
         <v-list class="cvlist" width="150px">
-          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text :href="`${publicPath}Jaroslav_Balent_CV.pdf`" target="_blank">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text :href="`${publicPath}jaroslavbalentcv.pdf`" target="_blank">
             <span>{{ $t('header.cv.t1') }}</span>
           </v-btn>
-          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" :href="`${publicPath}Jaroslav_Balent_CV.pdf`">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" :href="`${publicPath}jaroslavbalentcv.pdf`">
             <span>{{ $t('header.cv.t2') }}</span>
           </v-btn>
         </v-list>
