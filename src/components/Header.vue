@@ -48,6 +48,28 @@
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
 
+      <v-menu offset-y nudge-bottom="5" v-else>
+        <template v-slot:activator="{ on, attrs }">
+          <div class="cv">
+            <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
+              <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
+            </v-btn>
+          </div>
+        </template>
+        <v-list class="cvlist" width="150px">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text href="./Jaroslav_Balent_cv.pdf" target="_blank">
+            <span>{{ $t('header.cv.t1') }}</span>
+          </v-btn>
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_cv.pdf">
+            <span>{{ $t('header.cv.t2') }}</span>
+          </v-btn>
+        </v-list>
+      </v-menu>
+
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
       <v-tooltip bottom v-else>
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on" text rounded class="mr-1" color="primary" @click="toggle_dark_mode">
@@ -238,6 +260,7 @@
 
 <script>
 import CountryFlag from 'vue-country-flag';
+import html2pdf from "html2pdf.js";
 import {
   VueScrollProgressBar
 } from '@guillaumebriday/vue-scroll-progress-bar'
@@ -325,6 +348,16 @@ export default {
   },
 
   methods: {
+    downloadFile() {
+      const me = this;
+
+      const invoice = document.querySelector(me.dom);
+      var opt = {
+        margin: 1,
+        filename: me.name,
+      };
+      html2pdf().from(invoice).set(opt).save();
+    },
     setColorFirstSection() {
       var element = document.getElementById('toolbar');
       var theme = localStorage.getItem('dark_theme');

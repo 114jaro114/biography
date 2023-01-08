@@ -20,6 +20,10 @@ const messages = {
         t5: 'Moje práce',
         t6: 'Pošli mi správu',
       },
+      cv: {
+        t1: 'Otvoriť CV',
+        t2: 'Stiahnúť CV',
+      },
       theme: {
         t1: 'Vypnúť svetlo',
         t2: 'Zapnúť svetlo'
@@ -170,6 +174,10 @@ const messages = {
         t4: 'My hobbies',
         t5: 'My work',
         t6: 'Send me a message',
+      },
+      cv: {
+        t1: 'Open CV',
+        t2: 'Download CV',
       },
       theme: {
         t1: 'Turn off the light',
