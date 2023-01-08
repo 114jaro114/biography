@@ -45,14 +45,14 @@
       <v-spacer />
 
       <div v-if="$root.overlay">
-        <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
+        <v-skeleton-loader class="mr-1 btn-cv" type="chip" min-height="36"></v-skeleton-loader>
       </div>
 
       <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="cv">
             <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
-              <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
+              <v-img max-height="42" max-width="32" lazy-src="../assets/img/cv_img.png" src="../assets/img/cv_img.png" />
             </v-btn>
           </div>
         </template>
@@ -131,7 +131,11 @@
     </v-row>
 
     <v-row class="mr-0 mt-0 mb-0 ml-0 hidden-md-and-up justify-end">
-      <v-menu class="mr-1" min-width="250px" style="z-index:12" v-model="smDevicesMenu" :close-on-content-click="false" offset-y nudge-bottom="5">
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-small-menu" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-menu class="mr-1" min-width="250px" style="z-index:12" v-model="smDevicesMenu" :close-on-content-click="false" offset-y nudge-bottom="5" v-else>
         <template v-slot:activator=" { on }">
           <v-btn text rounded v-on="on">
             <v-icon>mdi-menu</v-icon>
@@ -231,11 +235,15 @@
 
       <v-spacer />
 
-      <v-menu offset-y nudge-bottom="5">
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-cv" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="cv">
             <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
-              <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
+              <v-img max-height="42" max-width="32" lazy-src="../assets/img/cv_img.png" src="../assets/img/cv_img.png" />
             </v-btn>
           </div>
         </template>
@@ -250,7 +258,11 @@
         </v-list>
       </v-menu>
 
-      <v-tooltip bottom>
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-tooltip bottom v-else>
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on" text rounded color="primary" class="mr-1" @click="toggle_dark_mode">
             <v-icon color="orange" v-if="!$vuetify.theme.dark">mdi-lightbulb-on-outline</v-icon>
@@ -261,18 +273,24 @@
         <span v-else>{{ $t('header.theme.t2') }}</span>
       </v-tooltip>
 
-      <v-menu id="langMenu" offset-y nudge-bottom="5">
+      <div v-if="$root.overlay">
+        <v-skeleton-loader class="mr-1 btn-lang" type="chip" min-height="36"></v-skeleton-loader>
+      </div>
+
+      <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn id="lang" color="primary" text rounded v-bind="attrs" v-on="on">
-            <div v-if="selectedLang == '1'">
-              <CountryFlag :country="'gb'" size='normal' />
-              <span class="position-relative ml-2" style="top:-5px">en</span>
-            </div>
-            <div v-else>
-              <CountryFlag :country="'sk'" size='normal' />
-              <span class="position-relative ml-2" style="top:-5px">sk</span>
-            </div>
-          </v-btn>
+          <div class="lang">
+            <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
+              <div class="menu-en" v-if="selectedLang == '1'">
+                <CountryFlag :country="'gb'" size='normal' />
+                <span class="position-relative ml-2" style="top:-5px">en</span>
+              </div>
+              <div class="menu-sk" v-else>
+                <CountryFlag :country="'sk'" size='normal' />
+                <span class="position-relative ml-2" style="top:-5px">sk</span>
+              </div>
+            </v-btn>
+          </div>
         </template>
         <v-list class="langlist">
           <v-list-item-group v-model="selectedLang" color="primary">
@@ -572,12 +590,21 @@ export default {
   width: 104.84px;
 }
 
+::v-deep .toolbar .btn-cv .v-skeleton-loader__chip {
+  width: 64px;
+}
+
 ::v-deep .toolbar .btn-theme .v-skeleton-loader__chip {
   width: 64px;
 }
 
 ::v-deep .toolbar .btn-lang .v-skeleton-loader__chip {
   width: 91px;
+}
+
+/* small devices */
+::v-deep .toolbar .btn-small-menu .v-skeleton-loader__chip {
+  width: 64px;
 }
 
 .menu-sk,

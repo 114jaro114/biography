@@ -48,7 +48,7 @@ new Vue({
   mounted() {
     setTimeout(() => {
       this.$root.overlay = false;
-    }, 300);
+    }, 400);
   },
 
   render: h => h(App),
