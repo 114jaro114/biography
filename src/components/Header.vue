@@ -48,15 +48,15 @@
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
 
-      <v-tooltip bottom v-else>
+      <!-- <v-tooltip bottom v-else>
         <template v-slot:activator="{ on, attrs }">
           <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on" download="Jaroslav_Balent_CV.pdf" href="/Jaroslav_Balent_CV.pdf">
             <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
           </v-btn>
         </template>
         <span>{{ $t('header.cv.t2') }}</span>
-      </v-tooltip>
-      <!--
+      </v-tooltip> -->
+
       <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="cv">
@@ -67,14 +67,14 @@
         </template>
 
         <v-list class="cvlist" width="150px">
-          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text href="./Jaroslav_Balent_cv.pdf" target="_blank">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text :href="`${publicPath}Jaroslav_Balent_CV.pdf`" target="_blank">
             <span>{{ $t('header.cv.t1') }}</span>
           </v-btn>
-          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_CV.pdf">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" :href="`${publicPath}Jaroslav_Balent_CV.pdf`">
             <span>{{ $t('header.cv.t2') }}</span>
           </v-btn>
         </v-list>
-      </v-menu> -->
+      </v-menu>
 
       <!-- <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
         <v-card class="mx-auto" tile>
@@ -310,6 +310,8 @@ export default {
   data() {
     return {
       // for cv
+      publicPath: process.env.BASE_URL,
+
       smDevicesMenu: false,
       switch1: false,
       position: null,
