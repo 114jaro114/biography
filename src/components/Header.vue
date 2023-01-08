@@ -44,6 +44,8 @@
 
       <v-spacer />
 
+      <a href="./Jaroslav_Balent_cv.pdf" target="_blank">cv</a>
+
       <div v-if="$root.overlay">
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
