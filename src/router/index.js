@@ -1,18 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Section from '../views/Section.vue'
-
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  name: 'Section',
-  component: Section,
-  meta: {
-    allowAnonymous: true
-  },
-}]
+const routes = []
 
 const router = new VueRouter({
   mode: 'history',
