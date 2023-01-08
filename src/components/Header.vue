@@ -50,7 +50,7 @@
 
       <v-tooltip bottom v-else>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on" download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_CV.pdf">
+          <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on" download="Jaroslav_Balent_CV.pdf" href="<%= BASE_URL %>Jaroslav_Balent_CV.pdf">
             <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
           </v-btn>
         </template>
