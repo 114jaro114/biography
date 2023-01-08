@@ -48,15 +48,6 @@
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
 
-      <!-- <v-tooltip bottom v-else>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on" download="Jaroslav_Balent_CV.pdf" href="/Jaroslav_Balent_CV.pdf">
-            <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
-          </v-btn>
-        </template>
-        <span>{{ $t('header.cv.t2') }}</span>
-      </v-tooltip> -->
-
       <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="cv">
@@ -67,7 +58,7 @@
         </template>
 
         <v-list class="cvlist" width="150px">
-          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text :href="`${publicPath}jaroslavbalentcv.pdf`" target="_blank">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile :href="`${publicPath}jaroslavbalentcv.pdf`" target="_blank">
             <span>{{ $t('header.cv.t1') }}</span>
           </v-btn>
           <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" :href="`${publicPath}jaroslavbalentcv.pdf`">
@@ -239,6 +230,26 @@
       </v-menu>
 
       <v-spacer />
+
+      <v-menu offset-y nudge-bottom="5">
+        <template v-slot:activator="{ on, attrs }">
+          <div class="cv">
+            <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on">
+              <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
+            </v-btn>
+          </div>
+        </template>
+
+        <v-list class="cvlist" width="150px">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile :href="`${publicPath}jaroslavbalentcv.pdf`" target="_blank">
+            <span>{{ $t('header.cv.t1') }}</span>
+          </v-btn>
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" :href="`${publicPath}jaroslavbalentcv.pdf`">
+            <span>{{ $t('header.cv.t2') }}</span>
+          </v-btn>
+        </v-list>
+      </v-menu>
+
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn v-bind="attrs" v-on="on" text rounded color="primary" class="mr-1" @click="toggle_dark_mode">
