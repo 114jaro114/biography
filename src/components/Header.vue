@@ -48,6 +48,15 @@
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
       </div>
 
+      <v-tooltip bottom v-else>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class="position-relative" color="primary" text rounded v-bind="attrs" v-on="on" download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_CV.pdf">
+            <v-img max-height="42" max-width="32" src="../assets/img/cv_img.png" />
+          </v-btn>
+        </template>
+        <span>{{ $t('header.cv.t2') }}</span>
+      </v-tooltip>
+      <!--
       <v-menu offset-y nudge-bottom="5" v-else>
         <template v-slot:activator="{ on, attrs }">
           <div class="cv">
@@ -56,15 +65,30 @@
             </v-btn>
           </div>
         </template>
+
         <v-list class="cvlist" width="150px">
-          <v-btn class="w-100" style="text-decoration: none" color="primary" @click="showcv" text>
+          <v-btn class="w-100" style="text-decoration: none" color="primary" elevation="0" tile text href="./Jaroslav_Balent_cv.pdf" target="_blank">
             <span>{{ $t('header.cv.t1') }}</span>
           </v-btn>
-          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_cv.pdf">
+          <v-btn class="w-100" style="text-decoration: none" color="primary" text download="Jaroslav_Balent_CV.pdf" href="./Jaroslav_Balent_CV.pdf">
             <span>{{ $t('header.cv.t2') }}</span>
           </v-btn>
         </v-list>
-      </v-menu>
+      </v-menu> -->
+
+      <!-- <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+        <v-card class="mx-auto" tile>
+          <v-toolbar color="primary" dark elevation="0" max-height="64">
+            <v-btn class="anim" icon dark @click="dialog = false">
+              <v-icon class="arrow2">mdi-arrow-left</v-icon>
+            </v-btn>
+            <v-toolbar-title>Jaroslav Balent CV</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text class="d-flex justify-center pt-1">
+            <pdf class="w-100" src="./Jaroslav_Balent_CV.pdf"></pdf>
+          </v-card-text>
+        </v-card>
+      </v-dialog> -->
 
       <div v-if="$root.overlay">
         <v-skeleton-loader class="mr-1 btn-theme" type="chip" min-height="36"></v-skeleton-loader>
@@ -260,7 +284,7 @@
 
 <script>
 import CountryFlag from 'vue-country-flag';
-import html2pdf from "html2pdf.js";
+// import pdf from 'vue-pdf'
 import {
   VueScrollProgressBar
 } from '@guillaumebriday/vue-scroll-progress-bar'
@@ -269,6 +293,7 @@ export default {
   components: {
     CountryFlag,
     VueScrollProgressBar,
+    // pdf
   },
   props: {
     nos: {
@@ -284,6 +309,7 @@ export default {
 
   data() {
     return {
+      // for cv
       smDevicesMenu: false,
       switch1: false,
       position: null,
@@ -301,6 +327,8 @@ export default {
           flag: "gb"
         },
       ],
+
+      dialog: false,
     }
   },
 
@@ -348,20 +376,6 @@ export default {
   },
 
   methods: {
-    showcv() {
-      window.open('./Jaroslav_Balent_cv.pdf', '_blank');
-    },
-
-    downloadFile() {
-      const me = this;
-
-      const invoice = document.querySelector(me.dom);
-      var opt = {
-        margin: 1,
-        filename: me.name,
-      };
-      html2pdf().from(invoice).set(opt).save();
-    },
     setColorFirstSection() {
       var element = document.getElementById('toolbar');
       var theme = localStorage.getItem('dark_theme');
