@@ -66,11 +66,31 @@
 
           <transition name="slide-fade-rl">
             <v-col cols="12" lg="4" md="4" class="order-lg-2 order-md-2 order-1 mb-10 mb-lg-0 mb-md-0" v-if="animSection0">
-              <v-row no-gutters justify="center">
-                <v-avatar :size="profilePhotoSize" class="pt-1">
-                  <v-img :lazy-src="require('../assets/img/profile_photo.jpg')" :src="require('../assets/img/profile_photo.jpg')" />
-                </v-avatar>
+              <v-row no-gutters justify="center" class="btn-age">
+                <v-badge overlap bottom right :offset-x="positionAge[0]" :offset-y="positionAge[1]">
+                  <template v-slot:badge>
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn elevation="0" depressed fab small v-bind="attrs" v-on="on">
+                          <v-icon small>
+                            mdi-cake-variant
+                          </v-icon>
+                          <span class="pt-1">24</span>
+                        </v-btn>
+                      </template>
+                      <div class="">
+                        <span class="mt-1">21.01.1998</span>
+                      </div>
+                    </v-tooltip>
+                  </template>
+                  <v-avatar :size="profilePhotoSize" class="pt-1">
+                    <v-img :lazy-src="require('../assets/img/profile_photo.jpg')" :src="require('../assets/img/profile_photo.jpg')" />
+                  </v-avatar>
+                </v-badge>
               </v-row>
+              <v-row no-gutters class="pt-3" justify="center">
+              </v-row>
+
               <v-row no-gutters class="pt-3" justify="center">
                 <span class="font-wight-thin text-h5">Ing. Jaroslav Balent</span>
               </v-row>
@@ -1527,6 +1547,27 @@ export default {
   },
 
   computed: {
+    positionAge() {
+      let xy = [];
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          xy = [40, 40];
+          break;
+        case 'sm':
+          xy = [40, 40];
+          break;
+        case 'md':
+          xy = [63, 50];
+          break;
+        case 'lg':
+          xy = [63, 50];
+          break;
+        case 'xl':
+          xy = [63, 50];
+      }
+      return xy;
+    },
+
     profilePhotoSize() {
       let size = 0
       switch (this.$vuetify.breakpoint.name) {
@@ -2117,5 +2158,28 @@ export default {
 
 .theme--dark .v-card .card-color-portfolio {
     background: rgba(255, 255, 255, 0.08);
+}
+
+::v-deep .v-badge__badge {
+    border-radius: 40px !important;
+    height: 40px !important;
+    width: 40px !important;
+    padding: unset !important;
+}
+
+::v-deep .theme--dark .v-badge__badge {
+    background-color: #121212 !important;
+}
+
+::v-deep .theme--light .v-badge__badge {
+    background-color: #fff !important;
+}
+
+.btn-age .theme--dark.v-btn.v-btn--has-bg {
+    background-color: #121212 !important;
+}
+
+.btn-age .theme--light.v-btn.v-btn--has-bg {
+    background-color: #fff !important;
 }
 </style>
