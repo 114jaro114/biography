@@ -75,7 +75,7 @@
                           <v-icon small>
                             mdi-cake-variant
                           </v-icon>
-                          <span class="pt-1">24</span>
+                          <span class="pt-1">{{getYearDiffWithMonth(new Date('1998-01-21'), new Date())}}</span>
                         </v-btn>
                       </template>
                       <div class="">
@@ -1839,6 +1839,14 @@ export default {
   },
 
   methods: {
+    getYearDiffWithMonth(startDate, endDate) {
+      const ms = endDate.getTime() - startDate.getTime();
+
+      const date = new Date(ms);
+
+      return Math.abs(date.getUTCFullYear() - 1970);
+    },
+
     //function for opening gallery of portfolio
     openGallery(index) {
       this.$refs.lightbox.showImage(index)
